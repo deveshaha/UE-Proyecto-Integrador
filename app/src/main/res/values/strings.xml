@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">UE-ProyectoIntegrador</string>
+    <string name="tv_movie_name">Movie Name</string>
+    <string name="tv_rating">0.0</string>
+    <string name="tv_about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus augue est, vulputate vitae cursus a, dignissim at tellus. Aliquam velit nisi, mattis non condimentum ut, tincidunt sit amet odio. Nulla turpis libero, volutpat imperdiet urna vel, porta viverra nisi. Sed ac dui quis felis faucibus luctus. Curabitur consequat orci nec arcu cursus, in vestibulum felis eleifend. Nunc porta libero ligula, vitae commodo metus fermentum id.</string>
+    <string name="btn_select">Select Session</string>
+    <string name="tv_ibdm_rating_txt">IBDM</string>
+    <string name="tv_ibdm_usr_txt">Users rating</string>
 </resources>
