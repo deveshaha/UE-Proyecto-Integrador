@@ -10,7 +10,7 @@
 
 
     <LinearLayout
-        android:id="@+id/ll_ToolBar"
+        android:id="@+id/ll_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/btn_logo"
+            android:id="@+id/imageBttLogo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -37,7 +37,7 @@
             android:layout_weight="0.5" />
 
         <ImageButton
-            android:id="@+id/btn_location"
+            android:id="@+id/imageBttLocation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -45,7 +45,7 @@
             android:src="@drawable/location_vector" />
 
         <TextView
-            android:id="@+id/tv_location"
+            android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
@@ -59,7 +59,7 @@
             android:layout_weight="0.5" />
 
         <Button
-            android:id="@+id/btn_profile"
+            android:id="@+id/btnProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/buttonColor"
@@ -71,45 +71,53 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintBottom_toTopOf="@+id/rvMovies"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_ToolBar">
+        app:layout_constraintTop_toBottomOf="@id/ll_toolbar">
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/edtSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:layout_weight="2"
+            android:backgroundTint="@color/textSecondary"
+            android:hint="En Cartelera"
+            android:inputType="text"
+            android:textColor="@color/textSecondary"
+            android:textColorHint="@color/textSecondary" />
 
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:backgroundTint="@color/textSecondary"
-                android:hint="En Cartelera"
-                android:inputType="text"
-                android:textColor="@color/textSecondary"
-                android:textColorHint="@color/textSecondary" />
-
-            <ImageButton
-                android:id="@+id/btn_search"
-                android:layout_width="118dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/backgroundApp"
-                android:src="@drawable/search_movie" />
-        </LinearLayout>
-
-
-
+        <ImageButton
+            android:id="@+id/imageBttSearch"
+            android:layout_width="118dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/backgroundApp"
+            android:src="@drawable/search_movie" />
     </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMovies"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_search"
+        />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
