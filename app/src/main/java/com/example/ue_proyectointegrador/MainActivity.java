@@ -17,6 +17,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import com.example.ue_proyectointegrador.fragments.LoginFragment;
 import com.example.ue_proyectointegrador.fragments.MovieFragment;
 
@@ -28,9 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnProfile;
     EditText edtSearch;
     ImageButton imageBttSearch;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     private void reference() {
         imageBttLogo = findViewById(R.id.imageBttLogo);
         imageBttLocation = findViewById(R.id.imageBttLocation);
@@ -66,11 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageBttLocation.setOnClickListener(this);
         btnProfile.setOnClickListener(this);
         imageBttSearch.setOnClickListener(this);
-
-
-
+        
     }
-
 
     @Override
     public void onClick(View v) {
