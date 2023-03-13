@@ -14,16 +14,16 @@ public class listaCines {
         }
         listaCines = new ArrayList<>();
 
-        listaCines.add(new Cines("CINE001", "Cine Yelmo Ideal", "Calle Doctor Cortezo, 6, 28012 Madrid"));
-        listaCines.add(new Cines("CINE002", "Cinesa Proyecciones", "Calle de Fuencarral, 136, 28010 Madrid"));
-        listaCines.add(new Cines("CINE003", "Cine Capitol", "Calle de Gran Vía, 41, 28013 Madrid"));
-        listaCines.add(new Cines("CINE004", "Cine Renoir Princesa", "Calle de la Princesa, 3, 28008 Madrid"));
-        listaCines.add(new Cines("CINE005", "Cine Golem", "Calle de Martín de los Heros, 14, 28008 Madrid"));
-        listaCines.add(new Cines("CINE006", "Cinesa Manoteras", "Calle de Agastia, 66, 28043 Madrid"));
-        listaCines.add(new Cines("CINE007", "Cine Paz", "Calle de Fuencarral, 125, 28010 Madrid"));
-        listaCines.add(new Cines("CINE008", "Cine Princesa", "Calle de la Princesa, 3, 28008 Madrid"));
-        listaCines.add(new Cines("CINE009", "Cine Yelmo Islazul", "Calle de Calderilla, 1, 28054 Madrid"));
-        listaCines.add(new Cines("CINE010", "Cines Dreams Palacio de Hielo", "Calle de Silvano, 77, 28043 Madrid"));
+        listaCines.add(new Cines("CINE001", "Cine Yelmo Ideal", "40.413653, -3.703872"));
+        listaCines.add(new Cines("CINE002", "Cinesa Proyecciones", "40.4333131, -3.7041275."));
+        listaCines.add(new Cines("CINE003", "Cine Capitol", "40.420391666667, -3.7066888888889"));
+        listaCines.add(new Cines("CINE004", "Cine Renoir Princesa", "40.4249437, -3.7132192"));
+        listaCines.add(new Cines("CINE005", "Cine Golem", "40.4256682, -3.7147338"));
+        listaCines.add(new Cines("CINE006", "Cinesa Manoteras", "40.2910, -3.3957"));
+        listaCines.add(new Cines("CINE007", "Cine Paz", "40.4333131, -3.7041275"));
+        listaCines.add(new Cines("CINE008", "Cine Princesa", "40.4249437, -3.7132192"));
+        listaCines.add(new Cines("CINE009", "Cine Yelmo Islazul", "40.3646206, -3.737685"));
+        listaCines.add(new Cines("CINE010", "Cines Dreams Palacio de Hielo", "40.4630989, -3.63679933866482"));
 
         return listaCines;
     }
