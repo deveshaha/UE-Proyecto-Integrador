@@ -17,7 +17,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import com.example.ue_proyectointegrador.fragments.LoginFragment;
+import com.example.ue_proyectointegrador.fragments.MapsFragment;
 import com.example.ue_proyectointegrador.fragments.MovieFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,8 +33,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText edtSearch;
     ImageButton imageBttSearch;
 
-
-
+    /*
+        Google Maps API Key:
+        Copy this line to your local.properties file:
+        MAPS_API_KEY=AIzaSyDS4ilJ4aKdvofOdTKrtiYmB7ASc3DqKkc
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     private void reference() {
         imageBttLogo = findViewById(R.id.imageBttLogo);
         imageBttLocation = findViewById(R.id.imageBttLocation);
@@ -66,11 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageBttLocation.setOnClickListener(this);
         btnProfile.setOnClickListener(this);
         imageBttSearch.setOnClickListener(this);
-
-
-
+        
     }
-
 
     @Override
     public void onClick(View v) {
@@ -79,7 +82,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fragmentManager(new MovieFragment());
                 break;
             case R.id.imageBttLocation:
-                Toast.makeText(this, "Ubicación", Toast.LENGTH_SHORT).show();
+                MapsFragment mapsFragment = new MapsFragment();
+                Slide mapsSlide = new Slide(Gravity.BOTTOM); //double check this
+                mapsSlide.setDuration(500);
+                mapsFragment.setEnterTransition(mapsSlide);
+                fragmentManager(mapsFragment);
                 break;
             case R.id.btnProfile:
                 LoginFragment lg = new LoginFragment().newInstance();

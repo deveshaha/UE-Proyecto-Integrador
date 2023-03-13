@@ -1,5 +1,6 @@
 package com.example.ue_proyectointegrador.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ue_proyectointegrador.MovieActivity;
 import com.example.ue_proyectointegrador.R;
 import com.example.ue_proyectointegrador.model.DataSource;
 import com.example.ue_proyectointegrador.model.Movie;
@@ -41,7 +43,6 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
         return fragment;
     }*/
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,6 +64,8 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        //TODO: Implementar el onClick de cada item del recycler view
+        //TODO: Implementar el onClick de cada item del recycler view para que al hacer click en un item se abra una nueva activity con los detalles de la pelicula
+        Intent intent = new Intent(getActivity(), MovieActivity.class);
+        startActivity(intent);         //NOTE: SOLO PARA PRUEBAS!!!!
     }
 }

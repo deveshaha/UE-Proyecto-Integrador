@@ -1,6 +1,7 @@
 package com.example.ue_proyectointegrador.model;
 
 import com.example.ue_proyectointegrador.R;
+import com.example.ue_proyectointegrador.entity.Cines;
 
 import java.util.ArrayList;
 
@@ -37,4 +38,5 @@ public class DataSource {
     public ArrayList<Movie> getListMovies() {
         return listMovies;
     }
+
 }
