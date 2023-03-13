@@ -7,5 +7,4 @@ public interface PeliculasDao {
     //Pasamos el nombre de la pelicula y nos devuelve el Cine
     //@Query("SELECT ")
 
-
 }
