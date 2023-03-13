@@ -63,6 +63,6 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        //TODO: Implementar el onClick de cada item del recycler view
     }
 }

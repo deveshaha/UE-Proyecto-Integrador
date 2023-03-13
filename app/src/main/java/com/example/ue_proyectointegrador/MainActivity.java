@@ -1,29 +1,24 @@
 package com.example.ue_proyectointegrador;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ue_proyectointegrador.fragments.MovieFragment;
-import com.example.ue_proyectointegrador.model.DataSource;
-import com.example.ue_proyectointegrador.model.Movie;
-import com.example.ue_proyectointegrador.rvutil.Adapter;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import java.util.ArrayList;
+import com.example.ue_proyectointegrador.fragments.LoginFragment;
+import com.example.ue_proyectointegrador.fragments.MovieFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnProfile;
     EditText edtSearch;
     ImageButton imageBttSearch;
+
 
 
 
@@ -66,23 +62,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnProfile = findViewById(R.id.btnProfile);
         edtSearch = findViewById(R.id.edtSearch);
         imageBttSearch = findViewById(R.id.imageBttSearch);
+        imageBttLogo.setOnClickListener(this);
+        imageBttLocation.setOnClickListener(this);
+        btnProfile.setOnClickListener(this);
+        imageBttSearch.setOnClickListener(this);
+
+
 
     }
 
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.imageBttLogo:
-                Toast.makeText(this, "Logo", Toast.LENGTH_SHORT).show();
+                fragmentManager(new MovieFragment());
                 break;
             case R.id.imageBttLocation:
-               //TODO: Invocar a el metodo fragmentManager y pasarle el fragmento del mapa
+                Toast.makeText(this, "Ubicación", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnProfile:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                LoginFragment lg = new LoginFragment().newInstance();
+                Slide slide = new Slide(Gravity.BOTTOM);
+                slide.setDuration(500);
+                lg.setEnterTransition(slide);
+                fragmentManager(lg);
                 break;
             case R.id.imageBttSearch:
-                Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Buscar", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
