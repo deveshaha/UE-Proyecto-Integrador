@@ -2,6 +2,9 @@ package com.example.ue_proyectointegrador;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ue_proyectointegrador.fragments.MovieFragment;
 import com.example.ue_proyectointegrador.model.DataSource;
 import com.example.ue_proyectointegrador.model.Movie;
 import com.example.ue_proyectointegrador.rvutil.Adapter;
@@ -29,11 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnProfile;
     EditText edtSearch;
     ImageButton imageBttSearch;
-    RecyclerView rvMovies;
-    RecyclerView.LayoutManager llm;
-    ArrayList<Movie> movies = new ArrayList<>();
-    DataSource dataSource = new DataSource();
-    Adapter adapter;
+
 
 
     @Override
@@ -41,16 +41,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         reference();
-        configRv();
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fgContainer, new MovieFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+
+    }
+    private void fragmentManager(Fragment fragment){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fgContainer, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
-    private void configRv() {
-        llm = new LinearLayoutManager(this);
-        rvMovies.setLayoutManager(llm);
-        adapter = new Adapter(dataSource.getListMovies());
-        rvMovies.setAdapter(adapter);
-        rvMovies.setHasFixedSize(true);
-    }
+
 
     private void reference() {
         imageBttLogo = findViewById(R.id.imageBttLogo);
@@ -59,11 +66,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnProfile = findViewById(R.id.btnProfile);
         edtSearch = findViewById(R.id.edtSearch);
         imageBttSearch = findViewById(R.id.imageBttSearch);
-        rvMovies = findViewById(R.id.rvMovies);
+
     }
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.imageBttLogo:
+                Toast.makeText(this, "Logo", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.imageBttLocation:
+               //TODO: Invocar a el metodo fragmentManager y pasarle el fragmento del mapa
+                break;
+            case R.id.btnProfile:
+                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.imageBttSearch:
+                Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }

@@ -19,11 +19,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements Vi
     private ArrayList<Movie> movies;
     private View.OnClickListener listener;
 
-    public Adapter(ArrayList<Movie> movies) {
+    public Adapter(ArrayList<Movie> movies, View.OnClickListener listener) {
         this.movies = movies;
-    }
-
-    public void setOnClickListener(View.OnClickListener listener){
         this.listener = listener;
     }
 
@@ -74,5 +71,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements Vi
             ratingMovie.setText( "⭐️" + String.valueOf(movie.getRating()) + "/10");
 
         }
+
     }
 }

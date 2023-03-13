@@ -79,7 +79,6 @@
         android:layout_marginEnd="10dp"
         android:orientation="horizontal"
         android:weightSum="3"
-        app:layout_constraintBottom_toTopOf="@+id/rvMovies"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_toolbar">
@@ -104,17 +103,22 @@
             android:src="@drawable/search_movie" />
     </LinearLayout>
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMovies"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fgContainer"
+        android:name="com.example.ue_proyectointegrador.fragments.MovieFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_search"
-        />
+        app:layout_constraintTop_toBottomOf="@id/ll_search"
+        tools:layout="@layout/fragment_movie" />
+
+
+
 
 
 
