@@ -1,8 +1,10 @@
 package com.example.ue_proyectointegrador.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "DISPONIBILIDAD_SALAS_BUTACAS",foreignKeys = {
         @ForeignKey(entity = Salas.class, parentColumns = "idSala", childColumns = "idSala"),
@@ -13,6 +15,8 @@ public class DisponibilidadSalasButacas {
     //idSala, numButaca, fecchaHora
 
     @ColumnInfo(name = "idSala")
+    @PrimaryKey
+    @NonNull
     public String idSala;
 
     @ColumnInfo(name = "numButaca")
