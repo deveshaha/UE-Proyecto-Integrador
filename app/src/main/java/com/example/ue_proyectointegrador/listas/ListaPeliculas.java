@@ -5,7 +5,7 @@ import com.example.ue_proyectointegrador.entity.Peliculas;
 
 import java.util.ArrayList;
 
-public class listaPeliculas {
+public class ListaPeliculas {
 
     private static ArrayList<Peliculas> listaPeliculas = null;
 
