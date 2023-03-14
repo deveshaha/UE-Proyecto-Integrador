@@ -1,11 +1,10 @@
 package com.example.ue_proyectointegrador.listas;
 
-import com.example.ue_proyectointegrador.entity.Cines;
 import com.example.ue_proyectointegrador.entity.CinesSalas;
 
 import java.util.ArrayList;
 
-public class listaCinesSalas {
+public class ListaCinesSalas {
 
 
     private static ArrayList<CinesSalas> listaCinesSalas = null;

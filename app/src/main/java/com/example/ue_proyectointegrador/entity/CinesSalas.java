@@ -4,13 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity(tableName = "CINES_SALAS",
-    primaryKeys = {"idCine"}, foreignKeys = {
+@Entity(tableName = "CINES_SALAS", foreignKeys = {
         @ForeignKey(entity = Cines.class, parentColumns = "idCine", childColumns = "idCine"),
         @ForeignKey(entity = Salas.class, parentColumns = "idSala", childColumns = "idSala")
     })
 public class CinesSalas {
+
+    @PrimaryKey(autoGenerate = true)
+    public int id;
 
     @ColumnInfo(name = "idCine")
     @NonNull
