@@ -4,7 +4,7 @@ import com.example.ue_proyectointegrador.entity.Usuario;
 
 import java.util.ArrayList;
 
-public class listaUsuarios {
+public class ListaUsuarios {
 
     private static ArrayList<Usuario> listaUsuarios = null;
 
