@@ -1,5 +1,6 @@
 package com.example.ue_proyectointegrador.dao;
 
+import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -12,7 +13,7 @@ import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.entity.Usuario;
 
 import java.util.List;
-
+@Dao
 public interface PeliculasDao {
 
     @Insert
@@ -20,10 +21,10 @@ public interface PeliculasDao {
 
     @Insert
     void insertAllCines(List<Cines> cines);
-
+/*
     @Insert
     void insertAllSalasPeliculas(List<SalasPeliculas> salasPeliculas);
-
+*/
     @Insert
     void insertAllCinesSalas(List<CinesSalas> cinesSalas);
 
@@ -36,7 +37,7 @@ public interface PeliculasDao {
     @Insert
     void insertAllSalas(List<Salas> salas);
 
-
+/*
 
     //Pasamos el nombre de la pelicula y nos devuelve un listado de los cines que tienen esa pelicula
     @Query("SELECT CINES.nombre " +
@@ -54,7 +55,7 @@ public interface PeliculasDao {
             "ON SALAS.idSala = SALAS_PELICULAS.idSala " +
             "WHERE SALAS_PELICULAS.titulo LIKE :titulo")
     public List<String> getSalasByPelicula(String titulo);
-
+*/
 
     //Para mostrar todos los cines disponibles
     @Query("SELECT * FROM CINES")
@@ -67,8 +68,6 @@ public interface PeliculasDao {
     @Query("SELECT * FROM CINES_SALAS")
     public List<CinesSalas> getAllCinesSalas();
 
-    @Query("SELECT * FROM SALAS_PELICULAS")
-    public List<SalasPeliculas> getAllSalasPeliculas();
 
     @Query("SELECT * FROM PELICULAS")
     public List<Peliculas> getAllPeliculas();
@@ -78,4 +77,11 @@ public interface PeliculasDao {
 
     @Query("SELECT * FROM USUARIOS")
     public List<Usuario> getAllUsuarios();
+
+    //TODO:Fix Salas_Peliculas
+/*
+    @Query("SELECT * FROM SALAS_PELICULAS")
+    public List<SalasPeliculas> getAllSalasPeliculas();
+
+ */
 }

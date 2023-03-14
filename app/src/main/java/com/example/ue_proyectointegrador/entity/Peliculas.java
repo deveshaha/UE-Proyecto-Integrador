@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "PELICULAS", indices = {@Index(value = {"idPelicula"}, unique = true)})
+@Entity(tableName = "PELICULAS", indices = {@Index(value = {"idPelicula"})})
 public class Peliculas {
 
     @PrimaryKey

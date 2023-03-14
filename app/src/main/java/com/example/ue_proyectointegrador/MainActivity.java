@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayList<Salas> listaSalas = (ArrayList<Salas>) peliculasDao.getAllSalas();
         ArrayList<CinesSalas> listaCinesSalas = (ArrayList<CinesSalas>) peliculasDao.getAllCinesSalas();
         ArrayList<Peliculas> listaPeliculas = (ArrayList<Peliculas>) peliculasDao.getAllPeliculas();
-        ArrayList<SalasPeliculas> listaSalasPeliculas = (ArrayList<SalasPeliculas>) peliculasDao.getAllSalasPeliculas();
+        //ArrayList<SalasPeliculas> listaSalasPeliculas = (ArrayList<SalasPeliculas>) peliculasDao.getAllSalasPeliculas();
         ArrayList<Butacas> listaButacas = (ArrayList<Butacas>) peliculasDao.getAllButacas();
         ArrayList<Usuario> listaUsuarios = (ArrayList<Usuario>) peliculasDao.getAllUsuarios();
 
@@ -105,12 +105,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             System.out.println("*** CARGANDO PELICULAS ***");
             peliculasDao.insertAllPeliculas(ListaPeliculas.getListaPeliculas());
         }
-
+/*
         if (listaSalasPeliculas.size() == 0){
             System.out.println("*** CARGANDO SALAS_PELICULAS ***");
             peliculasDao.insertAllSalasPeliculas(ListaSalasPeliculas.getListaSalasPeliculas());
         }
-
+*/
         if (listaButacas.size() == 0){
             System.out.println("*** CARGANDO BUTACAS ***");
             peliculasDao.insertAllButacas(ListaButacas.getListaButacas());

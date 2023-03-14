@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "CINES", indices = {@Index(value = {"direccion"}, unique = true)})
+@Entity(tableName = "CINES", indices = {@Index(value = {"idCine"}, unique = true)})
 public class Cines {
 
     //Direccion, nombre, idCine
@@ -20,13 +20,17 @@ public class Cines {
     public String nombre;
 
 
-    @ColumnInfo(name = "direccion")
-    public String direccion;
+    @ColumnInfo(name = "longitud")
+    public String longitud;
 
-    public Cines(@NonNull String idCine, String nombre, String direccion) {
+    @ColumnInfo(name = "latitud")
+    public String latitud;
+
+    public Cines(@NonNull String idCine, String nombre, String longitud, String latitud) {
         this.idCine = idCine;
         this.nombre = nombre;
-        this.direccion = direccion;
+        this.longitud = longitud;
+        this.latitud = latitud;
     }
 
 
@@ -39,16 +43,10 @@ public class Cines {
         return nombre;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getLongitud() {
+        return longitud;
     }
-
-    @Override
-    public String toString() {
-        return "Cines{" +
-                "idCine='" + idCine + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", direccion=" + direccion +
-                '}';
+    public String getLatitud() {
+        return latitud;
     }
 }
