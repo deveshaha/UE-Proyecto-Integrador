@@ -18,7 +18,7 @@ import com.example.ue_proyectointegrador.entity.Salas;
 import com.example.ue_proyectointegrador.entity.Usuario;
 
 @Database(entities = {Cines.class, Butacas.class, CinesSalas.class, Salas.class, Entradas.class,
-        DisponibilidadSalasButacas.class, Peliculas.class, Usuario.class}, version = 1, exportSchema = false)
+        DisponibilidadSalasButacas.class, Peliculas.class, Usuario.class}, version = 3, exportSchema = false)
 public abstract class CinesDB extends RoomDatabase {
 
 
@@ -32,7 +32,8 @@ public abstract class CinesDB extends RoomDatabase {
             cinesDB = Room.databaseBuilder(
                             context.getApplicationContext(),
                             CinesDB.class, "CINES_DB")
-                    .allowMainThreadQueries().build();
+                    .allowMainThreadQueries().fallbackToDestructiveMigration()
+                    .build();
         }
         return cinesDB;
     }

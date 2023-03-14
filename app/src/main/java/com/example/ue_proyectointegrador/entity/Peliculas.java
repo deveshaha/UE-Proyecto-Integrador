@@ -26,9 +26,9 @@ public class Peliculas {
     public String sinopsis;
 
     @ColumnInfo(name = "imagen")
-    public String imagen;
+    public int imagen;
 
-    public Peliculas(@NonNull String idPelicula, String titulo, double duracion, String genero, String sinopsis, String imagen) {
+    public Peliculas(@NonNull String idPelicula, String titulo, double duracion, String genero, String sinopsis, int imagen) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
         this.duracion = duracion;
@@ -58,7 +58,7 @@ public class Peliculas {
         return sinopsis;
     }
 
-    public String getImagen() {
+    public int getImagen() {
         return imagen;
     }
 }
