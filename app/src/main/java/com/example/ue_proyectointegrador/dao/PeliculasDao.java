@@ -9,7 +9,7 @@ import com.example.ue_proyectointegrador.entity.Cines;
 import com.example.ue_proyectointegrador.entity.CinesSalas;
 import com.example.ue_proyectointegrador.entity.Peliculas;
 import com.example.ue_proyectointegrador.entity.Salas;
-import com.example.ue_proyectointegrador.entity.SalasPeliculas;
+
 import com.example.ue_proyectointegrador.entity.Usuario;
 
 import java.util.List;
