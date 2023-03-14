@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ue_proyectointegrador.DB.CinesDB;
 import com.example.ue_proyectointegrador.R;
+import com.example.ue_proyectointegrador.dao.PeliculasDao;
+import com.example.ue_proyectointegrador.entity.Cines;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -17,21 +20,15 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
+
 public class MapsFragment extends Fragment {
 
     GoogleMap map;
+    PeliculasDao peliculasDao;
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
         @Override
         public void onMapReady(GoogleMap googleMap) {
             map = googleMap;
@@ -44,9 +41,20 @@ public class MapsFragment extends Fragment {
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(madrid, 10));
 
             map.clear();
+
+            List<Cines> cinesList = peliculasDao.getAllCines();
+
+            //print cinemas DEBUG
+            for (int i = 0; i < cinesList.size(); i++) {
+                System.out.println(cinesList.get(i).getNombre() + " " + cinesList.get(i).getLatitud() + " " + cinesList.get(i).getLongitud());
+            }
+
+            for (Cines cines : cinesList) {
+                LatLng cinemaLatLng = new LatLng(cines.getLatitud(), cines.getLongitud());
+                map.addMarker(new MarkerOptions().position(cinemaLatLng).title(cines.getNombre()));
+            }
         }
     };
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -63,5 +71,7 @@ public class MapsFragment extends Fragment {
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
+
+        peliculasDao = CinesDB.getDatabase(getContext()).peliculasDao();
     }
 }

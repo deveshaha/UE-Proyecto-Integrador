@@ -15,18 +15,16 @@ public class Cines {
     @NonNull
     public String idCine;
 
-
     @ColumnInfo(name = "nombre")
     public String nombre;
 
-
     @ColumnInfo(name = "longitud")
-    public String longitud;
+    public Double longitud;
 
     @ColumnInfo(name = "latitud")
-    public String latitud;
+    public Double latitud;
 
-    public Cines(@NonNull String idCine, String nombre, String longitud, String latitud) {
+    public Cines(@NonNull String idCine, String nombre, Double longitud, Double latitud) {
         this.idCine = idCine;
         this.nombre = nombre;
         this.longitud = longitud;
@@ -43,10 +41,10 @@ public class Cines {
         return nombre;
     }
 
-    public String getLongitud() {
+    public Double getLongitud() {
         return longitud;
     }
-    public String getLatitud() {
+    public Double getLatitud() {
         return latitud;
     }
 }
