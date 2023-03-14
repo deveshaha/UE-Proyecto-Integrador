@@ -4,43 +4,37 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Index;
+
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "ENTRADAS", indices = {@Index(value = {"idEntrada"})},
-        foreignKeys = @ForeignKey(entity = Salas.class, parentColumns = "idSala", childColumns = "idSala"))
+@Entity(tableName = "PELICULAS_SALAS", foreignKeys = {
+        @ForeignKey(entity = Salas.class, parentColumns = "idSala", childColumns = "idSala"),
+        @ForeignKey(entity = Peliculas.class, parentColumns = "idPelicula", childColumns = "idPelicula"),
+        @ForeignKey(entity = Peliculas.class, parentColumns = "titulo", childColumns = "titulo")
+})
 public class Entradas {
 
-    @PrimaryKey
-    @NonNull
-    public int idEntrada;
+    @PrimaryKey(autoGenerate = true)
+    public int id;
 
     @ColumnInfo(name = "idSala")
     @NonNull
     public String idSala;
 
-    @ColumnInfo(name = "numButaca")
+    @ColumnInfo(name = "idPelicula")
     @NonNull
-    public String numButaca;
+    public String idPelicula;
 
     @ColumnInfo(name = "titulo")
     @NonNull
     public String titulo;
 
-    public Entradas(int idEntrada, @NonNull String idSala, @NonNull String numButaca, @NonNull String titulo) {
-        this.idEntrada = idEntrada;
+    public Entradas( @NonNull String idSala, @NonNull String idPelicula, @NonNull String titulo) {
         this.idSala = idSala;
-        this.numButaca = numButaca;
+        this.idPelicula = idPelicula;
         this.titulo = titulo;
     }
 
-    public int getIdEntrada() {
-        return idEntrada;
-    }
-
-    public void setIdEntrada(int idEntrada) {
-        this.idEntrada = idEntrada;
-    }
 
     @NonNull
     public String getIdSala() {
@@ -52,12 +46,12 @@ public class Entradas {
     }
 
     @NonNull
-    public String getNumButaca() {
-        return numButaca;
+    public String getidPelicula() {
+        return idPelicula;
     }
 
-    public void setNumButaca(@NonNull String numButaca) {
-        this.numButaca = numButaca;
+    public void setidPelicula(@NonNull String idPelicula) {
+        this.idPelicula = idPelicula;
     }
 
     @NonNull

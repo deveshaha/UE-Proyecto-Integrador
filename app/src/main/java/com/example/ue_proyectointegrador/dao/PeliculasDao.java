@@ -7,9 +7,10 @@ import androidx.room.Query;
 import com.example.ue_proyectointegrador.entity.Butacas;
 import com.example.ue_proyectointegrador.entity.Cines;
 import com.example.ue_proyectointegrador.entity.CinesSalas;
+import com.example.ue_proyectointegrador.entity.Entradas;
 import com.example.ue_proyectointegrador.entity.Peliculas;
 import com.example.ue_proyectointegrador.entity.Salas;
-import com.example.ue_proyectointegrador.entity.SalasPeliculas;
+
 import com.example.ue_proyectointegrador.entity.Usuario;
 
 import java.util.List;
@@ -21,10 +22,10 @@ public interface PeliculasDao {
 
     @Insert
     void insertAllCines(List<Cines> cines);
-/*
+
     @Insert
-    void insertAllSalasPeliculas(List<SalasPeliculas> salasPeliculas);
-*/
+    void insertAllSalasPeliculas(List<Entradas> salasPeliculas);
+
     @Insert
     void insertAllCinesSalas(List<CinesSalas> cinesSalas);
 
@@ -37,25 +38,27 @@ public interface PeliculasDao {
     @Insert
     void insertAllSalas(List<Salas> salas);
 
-/*
 
+/*
+    //TODO: ARREGLAR ESTO
     //Pasamos el nombre de la pelicula y nos devuelve un listado de los cines que tienen esa pelicula
     @Query("SELECT CINES.nombre " +
             "FROM CINES INNER JOIN CINES_SALAS " +
             "ON CINES.idCine = CINES_SALAS.idCine " +
-            "INNER JOIN SALAS_PELICULAS " +
-            "ON SALAS_PELICULAS.idSala = SALAS_PELICULAS.idSala " +
-            "WHERE SALAS_PELICULAS.titulo LIKE :titulo")
+            "INNER JOIN PELICULAS_SALAS " +
+            "ON PELICULAS_SALAS.idSala = PELICULAS_SALAS.idSala " +
+            "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
     public List<Cines> getCinesByPelicula(String titulo);
 
-
+*/
     //Pasamos el nombre de la pelicula y nos devuelve un listado de las salas que tienen esa pelicula
     @Query("SELECT SALAS.idSala " +
-            "FROM SALAS INNER JOIN SALAS_PELICULAS " +
-            "ON SALAS.idSala = SALAS_PELICULAS.idSala " +
-            "WHERE SALAS_PELICULAS.titulo LIKE :titulo")
+            "FROM SALAS INNER JOIN PELICULAS_SALAS " +
+            "ON SALAS.idSala = PELICULAS_SALAS.idSala " +
+            "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
     public List<String> getSalasByPelicula(String titulo);
-*/
+
+
 
     //Para mostrar todos los cines disponibles
     @Query("SELECT * FROM CINES")
@@ -79,9 +82,8 @@ public interface PeliculasDao {
     public List<Usuario> getAllUsuarios();
 
     //TODO:Fix Salas_Peliculas
-/*
-    @Query("SELECT * FROM SALAS_PELICULAS")
-    public List<SalasPeliculas> getAllSalasPeliculas();
 
- */
+    @Query("SELECT * FROM PELICULAS_SALAS")
+    public List<Entradas> getAllPeliculasSalas();
+
 }

@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "PELICULAS", indices = {@Index(value = {"idPelicula"})})
+@Entity(tableName = "PELICULAS", indices = {@Index(value = {"idPelicula"}), @Index(value = {"titulo"}, unique = true)})
 public class Peliculas {
 
     @PrimaryKey
@@ -17,7 +17,7 @@ public class Peliculas {
     public String titulo;
 
     @ColumnInfo(name = "duracion")
-    public double duracion;
+    public String duracion;
 
     @ColumnInfo(name = "genero")
     public String genero;
@@ -26,9 +26,9 @@ public class Peliculas {
     public String sinopsis;
 
     @ColumnInfo(name = "imagen")
-    public String imagen;
+    public int imagen;
 
-    public Peliculas(@NonNull String idPelicula, String titulo, double duracion, String genero, String sinopsis, String imagen) {
+    public Peliculas(@NonNull String idPelicula, String titulo, String duracion, String genero, String sinopsis, int imagen) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
         this.duracion = duracion;
@@ -46,7 +46,7 @@ public class Peliculas {
         return titulo;
     }
 
-    public double getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
@@ -58,7 +58,7 @@ public class Peliculas {
         return sinopsis;
     }
 
-    public String getImagen() {
+    public int getImagen() {
         return imagen;
     }
 }
