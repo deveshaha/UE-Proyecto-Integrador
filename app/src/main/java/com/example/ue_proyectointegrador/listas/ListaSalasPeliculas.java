@@ -2,16 +2,16 @@ package com.example.ue_proyectointegrador.listas;
 
 import com.example.ue_proyectointegrador.entity.Peliculas;
 import com.example.ue_proyectointegrador.entity.Salas;
-import com.example.ue_proyectointegrador.entity.SalasPeliculas;
+import com.example.ue_proyectointegrador.entity.Entradas;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class ListaSalasPeliculas {
 
-    private static ArrayList<SalasPeliculas> listaSalasPeliculas = null;
+    private static ArrayList<Entradas> listaSalasPeliculas = null;
 
-    public static ArrayList<SalasPeliculas> getListaSalasPeliculas() {
+    public static ArrayList<Entradas> getListaSalasPeliculas() {
         if (listaSalasPeliculas != null) {
             return listaSalasPeliculas;
         }
@@ -33,7 +33,7 @@ public class ListaSalasPeliculas {
             String titulo = pelicula.getTitulo();
 
             // Agregar combinación a la lista de salas y películas
-            listaSalasPeliculas.add(new SalasPeliculas(idSala, idPelicula, titulo));
+            listaSalasPeliculas.add(new Entradas(idSala, idPelicula, titulo));
 
         }
 
