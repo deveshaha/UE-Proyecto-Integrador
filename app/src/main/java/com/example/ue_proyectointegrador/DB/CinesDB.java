@@ -32,7 +32,8 @@ public abstract class CinesDB extends RoomDatabase {
             cinesDB = Room.databaseBuilder(
                             context.getApplicationContext(),
                             CinesDB.class, "CINES_DB")
-                    .allowMainThreadQueries().fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return cinesDB;
