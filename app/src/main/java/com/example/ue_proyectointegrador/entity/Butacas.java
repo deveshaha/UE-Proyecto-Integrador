@@ -7,7 +7,7 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "BUTACAS", indices = {@Index(value = {"numButaca"}, unique = true)},
+@Entity(tableName = "BUTACAS", indices = {@Index(value = {"numButaca"})},
         foreignKeys = @ForeignKey(entity = Salas.class, parentColumns = "idSala", childColumns = "idSala"))
 public class Butacas {
 

@@ -5,10 +5,9 @@ import com.example.ue_proyectointegrador.entity.Salas;
 import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
-public class listaSalasPeliculas {
+public class ListaSalasPeliculas {
 
     private static ArrayList<SalasPeliculas> listaSalasPeliculas = null;
 
@@ -18,8 +17,8 @@ public class listaSalasPeliculas {
         }
 
         listaSalasPeliculas = new ArrayList<>();
-        ArrayList<Salas> listaSalas2 = listaSalas.getListaSalas();
-        ArrayList<Peliculas> listaPeliculas2 = listaPeliculas.getListaPeliculas();
+        ArrayList<Salas> listaSalas2 = ListaSalas.getListaSalas();
+        ArrayList<Peliculas> listaPeliculas2 = ListaPeliculas.getListaPeliculas();
 
         //Generamos combinaciones aleatorias
         Collections.shuffle(listaSalas2);

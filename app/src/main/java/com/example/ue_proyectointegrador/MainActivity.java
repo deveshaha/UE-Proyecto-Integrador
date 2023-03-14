@@ -20,9 +20,27 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.ue_proyectointegrador.DB.CinesDB;
+import com.example.ue_proyectointegrador.dao.PeliculasDao;
+import com.example.ue_proyectointegrador.entity.Butacas;
+import com.example.ue_proyectointegrador.entity.Cines;
+import com.example.ue_proyectointegrador.entity.CinesSalas;
+import com.example.ue_proyectointegrador.entity.Peliculas;
+import com.example.ue_proyectointegrador.entity.Salas;
+import com.example.ue_proyectointegrador.entity.SalasPeliculas;
+import com.example.ue_proyectointegrador.entity.Usuario;
 import com.example.ue_proyectointegrador.fragments.LoginFragment;
 import com.example.ue_proyectointegrador.fragments.MapsFragment;
 import com.example.ue_proyectointegrador.fragments.MovieFragment;
+import com.example.ue_proyectointegrador.listas.ListaButacas;
+import com.example.ue_proyectointegrador.listas.ListaCines;
+import com.example.ue_proyectointegrador.listas.ListaCinesSalas;
+import com.example.ue_proyectointegrador.listas.ListaPeliculas;
+import com.example.ue_proyectointegrador.listas.ListaSalas;
+import com.example.ue_proyectointegrador.listas.ListaSalasPeliculas;
+import com.example.ue_proyectointegrador.listas.ListaUsuarios;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnProfile;
     EditText edtSearch;
     ImageButton imageBttSearch;
+
+    PeliculasDao peliculasDao;
 
     /*
         Google Maps API Key:
@@ -45,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         reference();
 
+        loadDB();
+
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fgContainer, new MovieFragment());
@@ -52,6 +74,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ft.commit();
 
     }
+
+    private void loadDB() {
+        CinesDB db = CinesDB.getDatabase(this);
+        peliculasDao = db.peliculasDao();
+        ArrayList<Cines> listaCines = (ArrayList<Cines>) peliculasDao.getAllCines();
+        ArrayList<Salas> listaSalas = (ArrayList<Salas>) peliculasDao.getAllSalas();
+        ArrayList<CinesSalas> listaCinesSalas = (ArrayList<CinesSalas>) peliculasDao.getAllCinesSalas();
+        ArrayList<Peliculas> listaPeliculas = (ArrayList<Peliculas>) peliculasDao.getAllPeliculas();
+        //ArrayList<SalasPeliculas> listaSalasPeliculas = (ArrayList<SalasPeliculas>) peliculasDao.getAllSalasPeliculas();
+        ArrayList<Butacas> listaButacas = (ArrayList<Butacas>) peliculasDao.getAllButacas();
+        ArrayList<Usuario> listaUsuarios = (ArrayList<Usuario>) peliculasDao.getAllUsuarios();
+
+        if (listaCines.size() == 0){
+            System.out.println("*** CARGANDO CINES ***");
+            peliculasDao.insertAllCines(ListaCines.getListaCines());
+        }
+
+        if (listaSalas.size() == 0){
+            System.out.println("*** CARGANDO SALAS ***");
+            peliculasDao.insertAllSalas(ListaSalas.getListaSalas());
+        }
+
+        if (listaCinesSalas.size() == 0){
+            System.out.println("*** CARGANDO CINES_SALAS ***");
+            peliculasDao.insertAllCinesSalas(ListaCinesSalas.getListaCinesSalas());
+        }
+
+        if (listaPeliculas.size() == 0){
+            System.out.println("*** CARGANDO PELICULAS ***");
+            peliculasDao.insertAllPeliculas(ListaPeliculas.getListaPeliculas());
+        }
+/*
+        if (listaSalasPeliculas.size() == 0){
+            System.out.println("*** CARGANDO SALAS_PELICULAS ***");
+            peliculasDao.insertAllSalasPeliculas(ListaSalasPeliculas.getListaSalasPeliculas());
+        }
+*/
+        if (listaButacas.size() == 0){
+            System.out.println("*** CARGANDO BUTACAS ***");
+            peliculasDao.insertAllButacas(ListaButacas.getListaButacas());
+        }
+        if (listaUsuarios.size() == 0){
+            System.out.println("*** CARGANDO USUARIOS ***");
+            peliculasDao.insertAllUsuarios(ListaUsuarios.getListaUsuarios());
+        }
+
+    }
+
     private void fragmentManager(Fragment fragment){
         getSupportFragmentManager()
                 .beginTransaction()
