@@ -39,7 +39,8 @@ public interface PeliculasDao {
     void insertAllSalas(List<Salas> salas);
 
 
-
+/*
+    //TODO: ARREGLAR ESTO
     //Pasamos el nombre de la pelicula y nos devuelve un listado de los cines que tienen esa pelicula
     @Query("SELECT CINES.nombre " +
             "FROM CINES INNER JOIN CINES_SALAS " +
@@ -49,7 +50,7 @@ public interface PeliculasDao {
             "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
     public List<Cines> getCinesByPelicula(String titulo);
 
-
+*/
     //Pasamos el nombre de la pelicula y nos devuelve un listado de las salas que tienen esa pelicula
     @Query("SELECT SALAS.idSala " +
             "FROM SALAS INNER JOIN PELICULAS_SALAS " +
