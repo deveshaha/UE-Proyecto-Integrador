@@ -46,12 +46,14 @@ public class MapsFragment extends Fragment {
 
             //print cinemas DEBUG
             for (int i = 0; i < cinesList.size(); i++) {
-                System.out.println(cinesList.get(i).getNombre() + " " + cinesList.get(i).getLatitud() + " " + cinesList.get(i).getLongitud());
+                System.out.println(cinesList.get(i).getNombre() + " " + cinesList.get(i).getLongitud() + " " + cinesList.get(i).getLatitud());
             }
 
-            for (Cines cines : cinesList) {
-                LatLng cinemaLatLng = new LatLng(cines.getLatitud(), cines.getLongitud());
-                map.addMarker(new MarkerOptions().position(cinemaLatLng).title(cines.getNombre()));
+            //add markersq
+            for (int i = 0; i < cinesList.size(); i++) {
+                LatLng latLng = new LatLng(cinesList.get(i).getLongitud(), cinesList.get(i).getLatitud());
+                map.addMarker(new MarkerOptions().position(latLng).title(cinesList.get(i).getNombre()));
+                System.out.println("Marker " + cinesList.get(i).getNombre() + " added");
             }
         }
     };
