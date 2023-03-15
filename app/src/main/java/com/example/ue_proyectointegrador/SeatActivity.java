@@ -6,16 +6,18 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class SeatActivity extends AppCompatActivity {
+public class SeatActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvNameCinema;
     TextView tvTitleMovie;
@@ -26,6 +28,7 @@ public class SeatActivity extends AppCompatActivity {
     ImageButton ibSeat13, ibSeat14, ibSeat15, ibSeat16, ibSeat17, ibSeat18;
     ImageButton ibSeat19, ibSeat20, ibSeat21, ibSeat22, ibSeat23, ibSeat24;
     ImageButton ibSeat25, ibSeat26, ibSeat27, ibSeat28, ibSeat29, ibSeat30;
+    Button btnBuy;
     final Calendar calendar = Calendar.getInstance();
 
 
@@ -105,6 +108,22 @@ public class SeatActivity extends AppCompatActivity {
         ibSeat28 = findViewById(R.id.ibSeat28);
         ibSeat29 = findViewById(R.id.ibSeat29);
         ibSeat30 = findViewById(R.id.ibSeat30);
+        btnBuy = findViewById(R.id.btnBuy);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        ImageButton ib = (ImageButton) v;
+        int tickets[] = new int[30];
+        if (ib.isSelected()) {
+            ib.setSelected(false);
+            for (int i = 0; i < tickets.length; i++) {
+                tickets[i] = ib.getId();
+            }
+            btnBuy.setText("Comprar" + " " + tickets.length + " " + "entradas");
+        } else {
+            ib.setSelected(true);
+        }
     }
 }
