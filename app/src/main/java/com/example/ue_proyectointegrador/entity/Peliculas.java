@@ -34,9 +34,11 @@ public class Peliculas {
     @ColumnInfo(name = "imagen")
     public int imagen;
 
+    @ColumnInfo(name = "ratingUsuario")
+    public double ratingUsuario;
 
     public Peliculas(@NonNull String idPelicula, String titulo, String genero,
-                     double valoracion, String director, String duracion, String sinopsis, int imagen) {
+                     double valoracion, String director, String duracion, String sinopsis, int imagen, double ratingUsuario) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
         this.genero = genero;
@@ -45,6 +47,7 @@ public class Peliculas {
         this.duracion = duracion;
         this.sinopsis = sinopsis;
         this.imagen = imagen;
+        this.ratingUsuario = ratingUsuario;
     }
 
     @NonNull
@@ -78,5 +81,9 @@ public class Peliculas {
 
     public int getImagen() {
         return imagen;
+    }
+
+    public double getRatingUsuario() {
+        return ratingUsuario;
     }
 }

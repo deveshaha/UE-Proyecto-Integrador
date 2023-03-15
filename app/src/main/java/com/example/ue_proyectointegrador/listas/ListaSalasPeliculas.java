@@ -38,8 +38,6 @@ public class ListaSalasPeliculas {
         }
 */
 
-
-
             return listaSalasPeliculas;
     }
 }
