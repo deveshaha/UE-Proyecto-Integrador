@@ -60,6 +60,7 @@ public class MovieActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MovieActivity.this, SessionActivity.class);
                 intent.putExtra(MovieFragment.TAG_FILTER, idMovie);
+                intent.putExtra("movie", movie.getTitulo());
                 startActivity(intent);
             }
         });
