@@ -23,7 +23,8 @@ public class ListaSalasPeliculas {
         //Generamos combinaciones aleatorias
         Collections.shuffle(listaSalas2);
         Collections.shuffle(listaPeliculas2);
-
+/*
+        //TODO: Arreglar
         // Iterar por las listas de salas y películas para crear combinaciones
         for (int i = 0; i < listaSalas2.size(); i++) {
             Salas sala = listaSalas2.get(i);
@@ -34,9 +35,8 @@ public class ListaSalasPeliculas {
 
             // Agregar combinación a la lista de salas y películas
             listaSalasPeliculas.add(new Entradas(idSala, idPelicula, titulo));
-
         }
-
+*/
 
             return listaSalasPeliculas;
     }

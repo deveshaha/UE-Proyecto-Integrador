@@ -37,7 +37,6 @@ public class Peliculas {
     @ColumnInfo(name = "ratingUsuario")
     public double ratingUsuario;
 
-
     public Peliculas(@NonNull String idPelicula, String titulo, String genero,
                      double valoracion, String director, String duracion, String sinopsis, int imagen, double ratingUsuario) {
         this.idPelicula = idPelicula;

@@ -16,7 +16,6 @@ public class ListaPeliculas {
         }
         listaPeliculas = new ArrayList<>();
 
-
         listaPeliculas.add(new Peliculas("PEL1", "Oso vicioso","Comedia", 6.4,  "Elizabeth Banks", "1h 35m,",
                 "Un varipinto grupo formado por policías, delincuentes, turistas y adolescentes converge en un bosque de Georgia donde un oso negro de 500 libras se vuelve loco después de ingerir cocaína sin querer, que cayó del avión de un narcotraficante.", R.drawable.im_movie_1, 6.5));
 

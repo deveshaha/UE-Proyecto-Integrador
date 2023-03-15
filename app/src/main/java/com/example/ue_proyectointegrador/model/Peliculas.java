@@ -1,6 +1,6 @@
 package com.example.ue_proyectointegrador.model;
 
-public class Movie {
+public class Peliculas {
 
     private int img;
     private String title;
@@ -10,10 +10,10 @@ public class Movie {
     private double rating;
     private String description;
 
-    public Movie() {
+    public Peliculas() {
     }
 
-    public Movie(int img, String title, String genre, String time, String director, double rating,  String description) {
+    public Peliculas(int img, String title, String genre, String time, String director, double rating, String description) {
         this.img = img;
         this.title = title;
         this.genre = genre;
@@ -54,7 +54,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" +
+        return "Peliculas{" +
                 ", title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
                 ", time='" + time + '\'' +

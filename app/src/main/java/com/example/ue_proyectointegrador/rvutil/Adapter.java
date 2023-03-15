@@ -10,17 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ue_proyectointegrador.R;
-import com.example.ue_proyectointegrador.model.Movie;
+import com.example.ue_proyectointegrador.entity.Peliculas;
 
 import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements View.OnClickListener {
 
-    private ArrayList<Movie> movies;
+    private ArrayList<Peliculas> peliculas;
     private View.OnClickListener listener;
 
-    public Adapter(ArrayList<Movie> movies, View.OnClickListener listener) {
-        this.movies = movies;
+    public Adapter(ArrayList<Peliculas> peliculas, View.OnClickListener listener) {
+        this.peliculas = peliculas;
         this.listener = listener;
     }
 
@@ -35,12 +35,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements Vi
 
     @Override
     public void onBindViewHolder(@NonNull MovieVH holder, int position) {
-        holder.bindData(movies.get(position));
+        holder.bindData(peliculas.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return movies.size();
+        return peliculas.size();
     }
     @Override
     public void onClick(View v) {
@@ -53,6 +53,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements Vi
         private TextView titleMovie;
         private TextView genreMovie;
         private TextView ratingMovie;
+        private TextView directorMovie;
 
         public MovieVH(@NonNull View itemView) {
             super(itemView);
@@ -61,14 +62,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements Vi
             titleMovie = itemView.findViewById(R.id.tvTitle);
             genreMovie = itemView.findViewById(R.id.tvGenre);
             ratingMovie = itemView.findViewById(R.id.tvRating);
+            directorMovie = itemView.findViewById(R.id.tvDirector);
 
 
         }
-        public void bindData(Movie movie){
-            imgMovie.setImageResource(movie.getImg());
-            titleMovie.setText(movie.getTitle());
-            genreMovie.setText(movie.getGenre());
-            ratingMovie.setText( "⭐️" + String.valueOf(movie.getRating()) + "/10");
+        public void bindData(Peliculas peliculas){
+            imgMovie.setImageResource(peliculas.getImagen());
+            titleMovie.setText(peliculas.getTitulo());
+            genreMovie.setText(peliculas.getGenero());
+            directorMovie.setText(peliculas.getDirector());
+            ratingMovie.setText("⭐️" + String.valueOf(peliculas.getValoracion()) + "/10");
 
         }
 
