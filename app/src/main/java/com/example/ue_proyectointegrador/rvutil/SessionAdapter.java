@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ue_proyectointegrador.R;
-import com.example.ue_proyectointegrador.model.Peliculas;
+import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 
 import java.util.ArrayList;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionVH> implements View.OnClickListener {
 
     private View.OnClickListener listener;
-    private ArrayList<Peliculas> peliculas; //double check
+    private ArrayList<SalasPeliculas> peliculas; //double check
 
     @Override
     public void onClick(View v) {
@@ -24,7 +24,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             listener.onClick(v);
     }
 
-    public SessionAdapter(ArrayList<Peliculas> peliculas, View.OnClickListener listener) {
+    public SessionAdapter(ArrayList<SalasPeliculas> peliculas, View.OnClickListener listener) {
         this.peliculas = peliculas;
         this.listener = listener;
     }
@@ -65,11 +65,10 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             tvPrice = itemView.findViewById(R.id.tv_price);
         }
 
-        public void bindData(Peliculas session) {
+        public void bindData(SalasPeliculas session) {
             //TODO: Implementar el bind de los datos de la sesión
             //NOTE: Testing purposes!!!
             tvCinemma.setText("Cine Callao");
-            tvHour.setText(session.getTime());
             //tvPrice.setText(session.getPrice());
         }
     }

@@ -6,15 +6,23 @@
     <string name="btn_select">Select Session</string>
     <string name="tv_ibdm_rating_txt">IBDM</string>
     <string name="tv_ibdm_usr_txt">Users rating</string>
-    <string name="txt_profile">Perfil</string>
+    <string name="txt_login">Login</string>
     <!-- TODO: Remove or change this placeholder text -->
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Iniciar Seción</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="tvLocation">Madrid</string>
     <string name="btn_filter">Filtrar por cine</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtBtnLogin">Perfil</string>
+    <string name="action_register">Registrarce</string>
+    <string name="no_data">Debes Introducir tu email</string>
+    <string name="msg_errorData">Error en el email o en el password</string>
+    <string name="login_ok">Bienvenido</string>
+    <string name="txt_Pwd">El password debe tener al menos 8 caracteres</string>
+    <string name="msg_registerOk">Usuario registrado!</string>
+    <string name="msg_registerNoOk">Usuario no se ha podido registrar</string>
+    <string name="msg_userNoResgister">Email no registrado</string>
 </resources>
