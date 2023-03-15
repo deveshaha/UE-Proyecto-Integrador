@@ -34,6 +34,7 @@ public class SessionActivity extends AppCompatActivity implements DialogFilter.O
     String idCine;
     CinesDB db;
     PeliculasDao peliculasDao;
+    List<String> sessions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +55,13 @@ public class SessionActivity extends AppCompatActivity implements DialogFilter.O
 
         db = CinesDB.getDatabase(this);
         peliculasDao = db.peliculasDao();
+        sessions = peliculasDao.getSalasByPelicula(movie);
 
-        peliculasDao.getAllPeliculasSalas();
+        for (String s : sessions){
+            System.out.println("SALAS: " + s);
+        }
 
-    }
 
-    private void configRV() {
-        //TODO: configurar el recycler view
     }
 
     @Override

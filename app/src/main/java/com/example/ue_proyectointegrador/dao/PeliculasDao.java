@@ -11,6 +11,7 @@ import com.example.ue_proyectointegrador.entity.Entradas;
 import com.example.ue_proyectointegrador.entity.Peliculas;
 import com.example.ue_proyectointegrador.entity.Salas;
 
+import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.entity.Usuario;
 
 import java.util.List;
@@ -38,7 +39,6 @@ public interface PeliculasDao {
     @Insert
     void insertAllSalasPeliculas(List<Entradas> salasPeliculas);
 
-
 /*
     //TODO: ARREGLAR ESTO
     //Pasamos el nombre de la pelicula y nos devuelve un listado de los cines que tienen esa pelicula
@@ -64,7 +64,6 @@ public interface PeliculasDao {
     public List<Peliculas> getPeliculasByTitulo(String titulo);
 
 
-
     //Para mostrar todos los cines disponibles
     @Query("SELECT * FROM CINES")
     public List<Cines> getAllCines();
@@ -85,8 +84,6 @@ public interface PeliculasDao {
 
     @Query("SELECT * FROM USUARIOS")
     public List<Usuario> getAllUsuarios();
-
-    //TODO:Fix Salas_Peliculas
 
     @Query("SELECT * FROM PELICULAS_SALAS")
     public List<Entradas> getAllPeliculasSalas();

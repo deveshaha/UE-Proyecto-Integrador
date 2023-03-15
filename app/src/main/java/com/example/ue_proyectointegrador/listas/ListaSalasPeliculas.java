@@ -21,11 +21,6 @@ public class ListaSalasPeliculas {
         ArrayList<Peliculas> listaPeliculas2 = ListaPeliculas.getListaPeliculas();
 
 
-
-        //TODO: Arreglar
-        // Iterar por las listas de salas y películas para crear combinaciones
-
-
         for (Salas sala : listaSalas2) {
 
             Collections.shuffle(listaPeliculas2);
