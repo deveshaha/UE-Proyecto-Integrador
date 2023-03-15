@@ -21,8 +21,7 @@ import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.fragments.MovieFragment;
 import com.example.ue_proyectointegrador.rvutil.SessionAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class SessionActivity extends AppCompatActivity implements View.OnClickListener {
 
