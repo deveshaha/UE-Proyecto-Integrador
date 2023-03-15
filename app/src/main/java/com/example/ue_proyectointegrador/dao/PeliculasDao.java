@@ -24,9 +24,6 @@ public interface PeliculasDao {
     void insertAllCines(List<Cines> cines);
 
     @Insert
-    void insertAllSalasPeliculas(List<Entradas> salasPeliculas);
-
-    @Insert
     void insertAllCinesSalas(List<CinesSalas> cinesSalas);
 
     @Insert
@@ -37,6 +34,9 @@ public interface PeliculasDao {
 
     @Insert
     void insertAllSalas(List<Salas> salas);
+
+    @Insert
+    void insertAllSalasPeliculas(List<Entradas> salasPeliculas);
 
 
 /*

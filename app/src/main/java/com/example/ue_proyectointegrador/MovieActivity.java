@@ -53,7 +53,11 @@ public class MovieActivity extends AppCompatActivity {
         txtMovieName.setText(movie.getTitulo());
         txtMovieDescription.setText(movie.getSinopsis());
         txtMovieDuration.setText("Duración: " + movie.getDuracion());
+        txtMovieDirector.setText("Director: " + movie.getDirector());
+        txtIbdmRating.setText(movie.getRatingUsuario());
         imgMovie.setImageResource(movie.getImagen());
+        txtUserRating.setText(movie.getRatingUsuario());
+
 
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override

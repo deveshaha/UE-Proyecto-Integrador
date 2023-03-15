@@ -35,7 +35,6 @@ public class SessionActivity extends AppCompatActivity implements DialogFilter.O
     CinesDB db;
     PeliculasDao peliculasDao;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +55,7 @@ public class SessionActivity extends AppCompatActivity implements DialogFilter.O
         db = CinesDB.getDatabase(this);
         peliculasDao = db.peliculasDao();
 
-        //TODO: obtener la lista de salasPeliculas
+        peliculasDao.getAllPeliculasSalas();
 
     }
 
