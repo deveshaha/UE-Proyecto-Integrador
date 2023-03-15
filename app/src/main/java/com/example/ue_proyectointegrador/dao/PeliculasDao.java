@@ -43,18 +43,26 @@ public interface PeliculasDao {
     void insertDisponibilidadSalasButacas(List<DisponibilidadSalasButacas> disponibilidad);
 
 
-/*
+
     //TODO: ARREGLAR ESTO
     //Pasamos el nombre de la pelicula y nos devuelve un listado de los cines que tienen esa pelicula
+    @Query("SELECT PELICULAS_SALAS.idSala, PELICULAS_SALAS.titulo, PELICULAS_SALAS.precio " +
+            "FROM CINES INNER JOIN CINES_SALAS " +
+            "ON CINES.idCine = CINES_SALAS.idCine " +
+            "INNER JOIN PELICULAS_SALAS " +
+            "ON PELICULAS_SALAS.idSala = PELICULAS_SALAS.idSala " +
+            "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
+    public List<Entradas> getCinesByPelicula(String titulo);
+
+    //una query que le de un titulo y me de todos los cines donde esta esa pelicula
     @Query("SELECT CINES.nombre " +
             "FROM CINES INNER JOIN CINES_SALAS " +
             "ON CINES.idCine = CINES_SALAS.idCine " +
             "INNER JOIN PELICULAS_SALAS " +
             "ON PELICULAS_SALAS.idSala = PELICULAS_SALAS.idSala " +
             "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
-    public List<Cines> getCinesByPelicula(String titulo);
+    public List<String> getCinesByPelicula2(String titulo);
 
-*/
     //Pasamos el nombre de la pelicula y nos devuelve un listado de las salas que tienen esa pelicula
     @Query("SELECT SALAS.idSala " +
             "FROM SALAS INNER JOIN PELICULAS_SALAS " +

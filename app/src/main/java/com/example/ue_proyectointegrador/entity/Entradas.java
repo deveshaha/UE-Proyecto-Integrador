@@ -7,11 +7,7 @@ import androidx.room.ForeignKey;
 
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "PELICULAS_SALAS", foreignKeys = {
-        @ForeignKey(entity = Salas.class, parentColumns = "idSala", childColumns = "idSala"),
-        @ForeignKey(entity = Peliculas.class, parentColumns = "idPelicula", childColumns = "idPelicula"),
-        @ForeignKey(entity = Peliculas.class, parentColumns = "titulo", childColumns = "titulo")
-})
+@Entity(tableName = "PELICULAS_SALAS")
 public class Entradas {
 
     @PrimaryKey(autoGenerate = true)
