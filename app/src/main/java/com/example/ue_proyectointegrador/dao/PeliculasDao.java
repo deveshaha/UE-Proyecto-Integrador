@@ -86,4 +86,8 @@ public interface PeliculasDao {
     @Query("SELECT * FROM PELICULAS_SALAS")
     public List<Entradas> getAllPeliculasSalas();
 
+    //Query para consultar una pelicula por su id
+    @Query("SELECT * FROM PELICULAS WHERE idPelicula LIKE :idPelicula")
+    public Peliculas getPeliculaById(String idPelicula);
+
 }

@@ -83,5 +83,6 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
         Intent intent = new Intent(getActivity(), MovieActivity.class);
         intent.putExtra(TAG_FILTER, idMovie);
         startActivity(intent);
+        System.out.println("ID MOVIE PASAR: " + idMovie);
     }
 }
