@@ -11,4 +11,5 @@
     <dimen name="fragment_vertical_margin">16dp</dimen>
     <dimen name="marginStart_10dp">10dp</dimen>
     <dimen name="marginButton_10dp">10dp</dimen>
+    <dimen name="marginButton_25dp">25dp</dimen>
 </resources>

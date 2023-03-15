@@ -18,7 +18,6 @@ public class ListaSalasPeliculas {
 
         listaSalasPeliculas = new ArrayList<>();
 
-
         //Listado de salas y peliculas hasta la SALA50
         //idSala, idPelicula, titulo
 
@@ -56,7 +55,6 @@ public class ListaSalasPeliculas {
         listaSalasPeliculas.add(new Entradas("SALA04", "PELI7", "Creed III" , 7.5 ));
         listaSalasPeliculas.add(new Entradas("SALA04", "PELI8", "Ant-Man y la Avispa: Quantumanía" , 7.5 ));
         listaSalasPeliculas.add(new Entradas("SALA05", "PELI1", "Oso vicioso" , 7.5 ));
-
         listaSalasPeliculas.add(new Entradas("SALA05", "PELI2", "Llaman a la puerta" , 7.5 ));
         listaSalasPeliculas.add(new Entradas("SALA05", "PELI3", "El peor vecino del mundo" , 7.5 ));
         listaSalasPeliculas.add(new Entradas("SALA05", "PELI4", "El piloto" , 7.5 ));

@@ -12,6 +12,7 @@ import com.example.ue_proyectointegrador.R;
 import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionVH> implements View.OnClickListener {
 
@@ -24,8 +25,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             listener.onClick(v);
     }
 
-    public SessionAdapter(ArrayList<SalasPeliculas> peliculas, View.OnClickListener listener) {
-        this.peliculas = peliculas;
+    public SessionAdapter(List<String> cines, View.OnClickListener listener) {
         this.listener = listener;
     }
 

@@ -12,6 +12,7 @@ import com.example.ue_proyectointegrador.entity.Entradas;
 import com.example.ue_proyectointegrador.entity.Peliculas;
 import com.example.ue_proyectointegrador.entity.Salas;
 
+import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.entity.Usuario;
 
 import java.util.List;
@@ -38,31 +39,21 @@ public interface PeliculasDao {
 
     @Insert
     void insertAllSalasPeliculas(List<Entradas> salasPeliculas);
-
+    
     @Insert
     void insertDisponibilidadSalasButacas(List<DisponibilidadSalasButacas> disponibilidad);
-
-
-
+/*
     //TODO: ARREGLAR ESTO
     //Pasamos el nombre de la pelicula y nos devuelve un listado de los cines que tienen esa pelicula
-    @Query("SELECT PELICULAS_SALAS.idSala, PELICULAS_SALAS.titulo, PELICULAS_SALAS.precio " +
-            "FROM CINES INNER JOIN CINES_SALAS " +
-            "ON CINES.idCine = CINES_SALAS.idCine " +
-            "INNER JOIN PELICULAS_SALAS " +
-            "ON PELICULAS_SALAS.idSala = PELICULAS_SALAS.idSala " +
-            "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
-    public List<Entradas> getCinesByPelicula(String titulo);
-
-    //una query que le de un titulo y me de todos los cines donde esta esa pelicula
     @Query("SELECT CINES.nombre " +
             "FROM CINES INNER JOIN CINES_SALAS " +
             "ON CINES.idCine = CINES_SALAS.idCine " +
             "INNER JOIN PELICULAS_SALAS " +
             "ON PELICULAS_SALAS.idSala = PELICULAS_SALAS.idSala " +
             "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
-    public List<String> getCinesByPelicula2(String titulo);
+    public List<Cines> getCinesByPelicula(String titulo);
 
+*/
     //Pasamos el nombre de la pelicula y nos devuelve un listado de las salas que tienen esa pelicula
     @Query("SELECT SALAS.idSala " +
             "FROM SALAS INNER JOIN PELICULAS_SALAS " +
@@ -81,7 +72,6 @@ public interface PeliculasDao {
     //Pasamos el nombre de la pelicula y nos devuelve las peliculas con ese nombre
     @Query("SELECT * FROM PELICULAS WHERE titulo LIKE :titulo")
     public List<Peliculas> getPeliculasByTitulo(String titulo);
-
 
 
     //Para mostrar todos los cines disponibles
@@ -104,8 +94,6 @@ public interface PeliculasDao {
 
     @Query("SELECT * FROM USUARIOS")
     public List<Usuario> getAllUsuarios();
-
-    //TODO:Fix Salas_Peliculas
 
     @Query("SELECT * FROM PELICULAS_SALAS")
     public List<Entradas> getAllPeliculasSalas();
