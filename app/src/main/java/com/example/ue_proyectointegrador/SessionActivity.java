@@ -76,8 +76,7 @@ public class SessionActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         int position = rvSessions.getChildAdapterPosition(v);
         CinesSalas session = sessions.get(position);
-        Toast.makeText(this, "Cine: " + session.getNombreCine() + " Sala: " + session.getIdSala(), Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(this, "Cine: " + session.getNombreCine() + " Sala: " + session.getIdSala(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, SeatActivity.class);
         intent.putExtra("cine", session.getNombreCine());
         intent.putExtra("sala", session.getIdSala());
