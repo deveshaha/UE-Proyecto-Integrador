@@ -51,7 +51,7 @@ public class MovieActivity extends AppCompatActivity {
         Peliculas movie = peliculasDao.getPeliculaById(idMovie);
 
         txtMovieName.setText(movie.getTitulo());
-        txtMovieDescription.setText(movie.getSinopsis());
+        //txtMovieDescription.setText(movie.getSinopsis());
         txtMovieDuration.setText("Duración: " + movie.getDuracion());
         txtMovieDirector.setText("Director: " + movie.getDirector());
         txtIbdmRating.setText(movie.getRatingUsuario());
