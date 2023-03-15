@@ -23,9 +23,14 @@ public class CinesSalas {
     @NonNull
     public String idSala;
 
-    public CinesSalas(@NonNull String idCine, @NonNull String idSala) {
+    @ColumnInfo(name = "nombreCine")
+    @NonNull
+    public String nombreCine;
+
+    public CinesSalas(@NonNull String idCine, @NonNull String idSala, @NonNull String nombreCine) {
         this.idCine = idCine;
         this.idSala = idSala;
+        this.nombreCine = nombreCine;
     }
 
     @NonNull
@@ -36,5 +41,10 @@ public class CinesSalas {
     @NonNull
     public String getIdSala() {
         return idSala;
+    }
+
+    @NonNull
+    public String getNombreCine() {
+        return nombreCine;
     }
 }
