@@ -16,7 +16,7 @@ import com.example.ue_proyectointegrador.MovieActivity;
 import com.example.ue_proyectointegrador.R;
 import com.example.ue_proyectointegrador.dao.PeliculasDao;
 import com.example.ue_proyectointegrador.entity.Peliculas;
-import com.example.ue_proyectointegrador.model.DataSource;
+
 import com.example.ue_proyectointegrador.rvutil.Adapter;
 
 import java.util.ArrayList;

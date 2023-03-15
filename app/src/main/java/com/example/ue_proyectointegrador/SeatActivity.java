@@ -25,6 +25,10 @@ public class SeatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat);
         reference();
+
+        //Titulo, cine, sala
+
+
     }
 
     private void reference() {
