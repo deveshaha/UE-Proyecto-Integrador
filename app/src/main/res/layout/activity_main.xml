@@ -59,11 +59,11 @@
             android:layout_weight="0.5" />
 
         <Button
-            android:id="@+id/btnProfile"
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/buttonColor"
-            android:text="@string/txt_profile"
+            android:text="@string/txt_login"
             android:textColor="@color/white"
             android:textSize="@dimen/textSize_14sp"
             android:textStyle="bold" />

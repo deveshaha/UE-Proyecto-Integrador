@@ -1,11 +1,9 @@
 package com.example.ue_proyectointegrador;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -16,9 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.content.Intent;
-import android.os.Bundle;
 
 import com.example.ue_proyectointegrador.DB.CinesDB;
 import com.example.ue_proyectointegrador.dao.PeliculasDao;
@@ -71,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ft.replace(R.id.fgContainer, new MovieFragment());
         ft.addToBackStack(null);
         ft.commit();
+
 
     }
 
@@ -134,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageBttLogo = findViewById(R.id.imageBttLogo);
         imageBttLocation = findViewById(R.id.imageBttLocation);
         txtLocation = findViewById(R.id.tvLocation);
-        btnProfile = findViewById(R.id.btnProfile);
+        btnProfile = findViewById(R.id.btnLogin);
         edtSearch = findViewById(R.id.edtSearch);
         imageBttSearch = findViewById(R.id.imageBttSearch);
         imageBttLogo.setOnClickListener(this);
@@ -152,17 +148,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.imageBttLocation:
                 MapsFragment mapsFragment = new MapsFragment();
-                Slide mapsSlide = new Slide(Gravity.BOTTOM); //double check this
+                Slide mapsSlide = new Slide(Gravity.BOTTOM);
                 mapsSlide.setDuration(500);
                 mapsFragment.setEnterTransition(mapsSlide);
                 fragmentManager(mapsFragment);
                 break;
-            case R.id.btnProfile:
+            case R.id.btnLogin:
                 LoginFragment lg = new LoginFragment().newInstance();
                 Slide slide = new Slide(Gravity.BOTTOM);
                 slide.setDuration(500);
                 lg.setEnterTransition(slide);
                 fragmentManager(lg);
+                btnProfile.setText(R.string.txtBtnLogin);
                 break;
             case R.id.imageBttSearch:
                 Toast.makeText(this, "Buscar", Toast.LENGTH_SHORT).show();
