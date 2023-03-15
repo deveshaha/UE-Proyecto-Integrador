@@ -13,21 +13,39 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.ue_proyectointegrador.DB.CinesDB;
 import com.example.ue_proyectointegrador.R;
+import com.example.ue_proyectointegrador.dao.PeliculasDao;
+import com.example.ue_proyectointegrador.entity.Cines;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DialogFilter extends DialogFragment {
 
     Spinner spnCinemas;
     OnDatosListener listener;
+    CinesDB db;
+    PeliculasDao peliculasDao;
+    ArrayList<String> listCinemas = new ArrayList<>();
+    List<Cines> cinemas;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
         View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_filter, null);
-
         spnCinemas = view.findViewById(R.id.spnCinemas);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.cinemas, android.R.layout.simple_spinner_item);
+
+        db = CinesDB.getDatabase(getActivity().getApplicationContext());
+        peliculasDao = db.peliculasDao();
+
+        cinemas = peliculasDao.getAllCines();
+        for (Cines c: cinemas) {
+            listCinemas.add(c.getNombre());
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, listCinemas);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnCinemas.setAdapter(adapter);
 
@@ -77,8 +95,4 @@ public class DialogFilter extends DialogFragment {
         super.onDetach();
     }
 
-    public void getCinemas(){
-        //TODO: Get cinemas from database
-
-    }
 }

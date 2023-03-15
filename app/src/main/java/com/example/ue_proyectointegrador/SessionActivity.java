@@ -7,21 +7,34 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ue_proyectointegrador.R;
+import com.example.ue_proyectointegrador.DB.CinesDB;
+import com.example.ue_proyectointegrador.dao.PeliculasDao;
 import com.example.ue_proyectointegrador.dialog.DialogFilter;
+import com.example.ue_proyectointegrador.entity.Cines;
+import com.example.ue_proyectointegrador.entity.SalasPeliculas;
+import com.example.ue_proyectointegrador.fragments.MovieFragment;
 import com.example.ue_proyectointegrador.model.DataSource;
 import com.example.ue_proyectointegrador.rvutil.SessionAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SessionActivity extends AppCompatActivity implements DialogFilter.OnDatosListener, View.OnClickListener {
 
     RecyclerView rvSessions;
     RecyclerView.LayoutManager llm;
-    DataSource dataSource = new DataSource();
     SessionAdapter adapter;
     Button btnFilter;
+    TextView tv_session_name;
     String cine;
+    String movie;
+    String idCine;
+    CinesDB db;
+    PeliculasDao peliculasDao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +42,26 @@ public class SessionActivity extends AppCompatActivity implements DialogFilter.O
         setContentView(R.layout.activity_sesssion);
         rvSessions = findViewById(R.id.rvSessions);
         btnFilter = findViewById(R.id.btn_filter);
+        tv_session_name = findViewById(R.id.tv_session_name);
+
+        idCine = getIntent().getStringExtra(MovieFragment.TAG_FILTER);
+        System.out.println("ID CINE RECIBIDO SESSION ACTIVITY: " + idCine);
+        movie = getIntent().getStringExtra("movie");
+        System.out.println("MOVIE RECIBIDO SESSION ACTIVITY: " + movie);
+
+        tv_session_name.setText(movie);
+
         btnFilter.setOnClickListener(this);
-        configRv();
+
+        db = CinesDB.getDatabase(this);
+        peliculasDao = db.peliculasDao();
+
+        //TODO: obtener la lista de salasPeliculas
+
     }
 
-    private void configRv() {
-        llm = new LinearLayoutManager(this);
-        rvSessions.setLayoutManager(llm);
-        adapter = new SessionAdapter(dataSource.getListMovies(),this);
-        rvSessions.setAdapter(adapter);
-        rvSessions.setHasFixedSize(true);
+    private void configRV() {
+        //TODO: configurar el recycler view
     }
 
     @Override
