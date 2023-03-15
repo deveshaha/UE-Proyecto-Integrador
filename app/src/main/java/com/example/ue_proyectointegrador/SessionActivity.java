@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,6 @@ import com.example.ue_proyectointegrador.entity.CinesSalas;
 import com.example.ue_proyectointegrador.entity.Entradas;
 import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.fragments.MovieFragment;
-import com.example.ue_proyectointegrador.model.DataSource;
 import com.example.ue_proyectointegrador.rvutil.SessionAdapter;
 
 import java.util.ArrayList;
@@ -74,8 +74,15 @@ public class SessionActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(this, "Se ha pulsado", Toast.LENGTH_SHORT).show();
-    }
+        int position = rvSessions.getChildAdapterPosition(v);
+        CinesSalas session = sessions.get(position);
+        Toast.makeText(this, "Cine: " + session.getNombreCine() + " Sala: " + session.getIdSala(), Toast.LENGTH_SHORT).show();
 
+        Intent intent = new Intent(this, SeatActivity.class);
+        intent.putExtra("cine", session.getNombreCine());
+        intent.putExtra("sala", session.getIdSala());
+
+        startActivity(intent);
+    }
 
 }
