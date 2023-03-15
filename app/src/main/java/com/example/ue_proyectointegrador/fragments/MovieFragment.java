@@ -29,7 +29,6 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
     public static final String TAG_FILTER = "FILTER";
     RecyclerView rvMovies;
     RecyclerView.LayoutManager llm;
-    DataSource dataSource = new DataSource();
     Adapter adapter;
     CinesDB db;
     PeliculasDao peliculasDao;

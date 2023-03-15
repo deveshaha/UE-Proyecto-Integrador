@@ -9,4 +9,6 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
+    <dimen name="marginStart_10dp">10dp</dimen>
+    <dimen name="marginButton_10dp">10dp</dimen>
 </resources>

@@ -53,6 +53,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements Vi
         private TextView titleMovie;
         private TextView genreMovie;
         private TextView ratingMovie;
+        private TextView directorMovie;
 
         public MovieVH(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +62,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements Vi
             titleMovie = itemView.findViewById(R.id.tvTitle);
             genreMovie = itemView.findViewById(R.id.tvGenre);
             ratingMovie = itemView.findViewById(R.id.tvRating);
+            directorMovie = itemView.findViewById(R.id.tvDirector);
 
 
         }
@@ -68,7 +70,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MovieVH> implements Vi
             imgMovie.setImageResource(peliculas.getImagen());
             titleMovie.setText(peliculas.getTitulo());
             genreMovie.setText(peliculas.getGenero());
-
+            directorMovie.setText(peliculas.getDirector());
+            ratingMovie.setText("⭐️" + String.valueOf(peliculas.getValoracion()) + "/10");
 
         }
 

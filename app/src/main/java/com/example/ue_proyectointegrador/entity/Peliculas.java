@@ -16,11 +16,17 @@ public class Peliculas {
     @ColumnInfo(name = "titulo")
     public String titulo;
 
-    @ColumnInfo(name = "duracion")
-    public String duracion;
-
     @ColumnInfo(name = "genero")
     public String genero;
+
+    @ColumnInfo(name = "valoracion")
+    public double valoracion;
+
+    @ColumnInfo(name = "director")
+    public String director;
+
+    @ColumnInfo(name = "duracion")
+    public String duracion;
 
     @ColumnInfo(name = "sinopsis")
     public String sinopsis;
@@ -28,11 +34,15 @@ public class Peliculas {
     @ColumnInfo(name = "imagen")
     public int imagen;
 
-    public Peliculas(@NonNull String idPelicula, String titulo, String duracion, String genero, String sinopsis, int imagen) {
+
+    public Peliculas(@NonNull String idPelicula, String titulo, String genero,
+                     double valoracion, String director, String duracion, String sinopsis, int imagen) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
-        this.duracion = duracion;
         this.genero = genero;
+        this.valoracion = valoracion;
+        this.director = director;
+        this.duracion = duracion;
         this.sinopsis = sinopsis;
         this.imagen = imagen;
     }
@@ -46,12 +56,20 @@ public class Peliculas {
         return titulo;
     }
 
-    public String getDuracion() {
-        return duracion;
-    }
-
     public String getGenero() {
         return genero;
+    }
+
+    public double getValoracion() {
+        return valoracion;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getDuracion() {
+        return duracion;
     }
 
     public String getSinopsis() {
