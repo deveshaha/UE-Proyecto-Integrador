@@ -20,7 +20,7 @@ public class Peliculas {
     public String genero;
 
     @ColumnInfo(name = "valoracion")
-    public double valoracion;
+    public String valoracion;
 
     @ColumnInfo(name = "director")
     public String director;
@@ -35,10 +35,10 @@ public class Peliculas {
     public int imagen;
 
     @ColumnInfo(name = "ratingUsuario")
-    public double ratingUsuario;
+    public String ratingUsuario;
 
     public Peliculas(@NonNull String idPelicula, String titulo, String genero,
-                     double valoracion, String director, String duracion, String sinopsis, int imagen, double ratingUsuario) {
+                     String valoracion, String director, String duracion, String sinopsis, int imagen, String ratingUsuario) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
         this.genero = genero;
@@ -63,7 +63,7 @@ public class Peliculas {
         return genero;
     }
 
-    public double getValoracion() {
+    public String getValoracion() {
         return valoracion;
     }
 
@@ -83,7 +83,7 @@ public class Peliculas {
         return imagen;
     }
 
-    public double getRatingUsuario() {
+    public String getRatingUsuario() {
         return ratingUsuario;
     }
 }
