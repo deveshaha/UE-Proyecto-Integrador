@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundApp"
+    android:padding="@dimen/margin_16dp"
+    tools:context=".SeatActivity">
+
+    <LinearLayout
+        android:id="@+id/llNameCinema"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/marginButton_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvNameCinema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CINEMA XXI"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:id="@+id/tvTitleMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JURAGAN EMPANG"
+            android:textColor="@color/textSecondary"
+            android:textSize="14sp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            app:layout_constraintTop_toBottomOf="@+id/llNameCinema"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/calendar_month"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="April, 14"
+                android:textColor="@color/textSecondary"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/time_filled_"
+                android:layout_marginLeft="30dp"
+
+                />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="14:00"
+                android:textColor="@color/textSecondary"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            app:layout_constraintTop_toBottomOf="@id/llDateTime">
+
+            <ImageView
+                android:id="@+id/ivSeatAvailable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/circle_availabel"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvSeatAvailable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available"
+                android:textColor="@color/textSecondary"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                />
+
+            <ImageView
+                android:id="@+id/ivSeatOccupied"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/circle_occupied"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:id="@+id/tvSeatOccupied"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Occupied"
+                android:textColor="@color/textSecondary"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivSeatChosen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/circle_chosen"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:id="@+id/tvSeatChosen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chosen"
+                android:textColor="@color/textSecondary"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                />
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="SCREEN"
+        android:textAlignment="center"
+        android:textColor="@color/textSecondary"
+        app:layout_constraintTop_toBottomOf="@+id/llSeat"
+        tools:layout_editor_absoluteX="27dp" />
+
+    <ImageView
+        android:id="@+id/ivScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/stroke"
+        app:layout_constraintTop_toBottomOf="@+id/tvScreen"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <GridLayout
+        android:id="@+id/glSeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="0.5dp"
+        android:layout_marginVertical="0.5dp"
+        android:layout_marginTop="30dp"
+        android:columnCount="6"
+        android:rowCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivScreen"
+        app:layout_constraintVertical_bias="0.19999999">
+
+        <ImageButton
+            android:id="@+id/ibSeat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="5"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="4"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="5"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="4"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="5"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="4"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="5"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="3"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="4"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+
+        <ImageButton
+            android:id="@+id/ibSeat30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="5"
+            android:layout_marginLeft="@dimen/marginButton_10dp"
+            android:layout_marginTop="@dimen/marginButton_10dp"
+            android:layout_marginRight="@dimen/marginButton_10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_availabel" />
+        
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btnBuy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/buttonColor"
+        android:textColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/marginButton_10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/glSeat" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

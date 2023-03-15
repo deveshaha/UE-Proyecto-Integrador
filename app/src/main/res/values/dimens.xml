@@ -13,4 +13,5 @@
     <dimen name="marginButton_10dp">10dp</dimen>
     <dimen name="cinema_item">18sp</dimen>
     <dimen name="sub_title">24sp</dimen>
+    <dimen name="marginButton_25dp">25dp</dimen>
 </resources>
