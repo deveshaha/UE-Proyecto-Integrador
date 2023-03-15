@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/marginStart_10dp"
         >
 
         <TextView
@@ -32,7 +32,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
             />
 
         <TextView
@@ -41,9 +41,18 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textSecondary"
             android:textSize="14sp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
             />
 
+        <TextView
+            android:id="@+id/tvDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textSecondary"
+            android:textSize="15sp"
+            android:layout_marginBottom="@dimen/marginButton_10dp"
+
+            />
 
         <TextView
             android:id="@+id/tvRating"
@@ -51,7 +60,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textSecondary"
             android:textSize="15sp"
-            tools:ignore="InvalidId" />
+            android:layout_marginBottom="@dimen/marginButton_10dp"/>
+
 
 
 
