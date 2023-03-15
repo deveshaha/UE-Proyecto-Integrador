@@ -43,8 +43,7 @@ public interface PeliculasDao {
     @Insert
     void insertDisponibilidadSalasButacas(List<DisponibilidadSalasButacas> disponibilidad);
 
-    //Damos el Titulo y nos devuelve los cines donde se proyecta asi como la primera sala de cada cine y el precio de la entrada
-    @Query("SELECT DISTINCT CINES.nombre, SALAS.idSala, PELICULAS_SALAS.precio " +
+    @Query("SELECT DISTINCT CINES_SALAS.nombreCine, SALAS.idSala, PELICULAS_SALAS.precio, PELICULAS_SALAS.id, CINES_SALAS.idCine " +
             "FROM CINES INNER JOIN CINES_SALAS " +
             "ON CINES.idCine = CINES_SALAS.idCine " +
             "INNER JOIN SALAS " +
@@ -52,21 +51,16 @@ public interface PeliculasDao {
             "INNER JOIN PELICULAS_SALAS " +
             "ON PELICULAS_SALAS.idSala = SALAS.idSala " +
             "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
-    public List<CinesSalas> getCinesSalasByPelicula(String titulo);
+    public List<CinesSalas> getCinesSalasByPelicula3(String titulo);
 
-
-/*
-    //TODO: ARREGLAR ESTO
-    //Pasamos el nombre de la pelicula y nos devuelve un listado de los cines que tienen esa pelicula
-    @Query("SELECT CINES.nombre " +
+    @Query("SELECT DISTINCT CINES.nombre " +
             "FROM CINES INNER JOIN CINES_SALAS " +
             "ON CINES.idCine = CINES_SALAS.idCine " +
             "INNER JOIN PELICULAS_SALAS " +
             "ON PELICULAS_SALAS.idSala = PELICULAS_SALAS.idSala " +
             "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
-    public List<Cines> getCinesByPelicula(String titulo);
+    public List<String> getCinesByPelicula2(String titulo);
 
-*/
     //Pasamos el nombre de la pelicula y nos devuelve un listado de las salas que tienen esa pelicula
     @Query("SELECT SALAS.idSala " +
             "FROM SALAS INNER JOIN PELICULAS_SALAS " +

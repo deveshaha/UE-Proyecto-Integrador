@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,33 +15,32 @@ import com.example.ue_proyectointegrador.DB.CinesDB;
 import com.example.ue_proyectointegrador.dao.PeliculasDao;
 import com.example.ue_proyectointegrador.dialog.DialogFilter;
 import com.example.ue_proyectointegrador.entity.Cines;
+import com.example.ue_proyectointegrador.entity.CinesSalas;
+import com.example.ue_proyectointegrador.entity.Entradas;
 import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.fragments.MovieFragment;
 import com.example.ue_proyectointegrador.rvutil.SessionAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class SessionActivity extends AppCompatActivity implements DialogFilter.OnDatosListener, View.OnClickListener {
+
+public class SessionActivity extends AppCompatActivity implements View.OnClickListener {
 
     RecyclerView rvSessions;
     RecyclerView.LayoutManager llm;
     SessionAdapter adapter;
-    Button btnFilter;
     TextView tv_session_name;
     String cine;
     String movie;
     String idCine;
     CinesDB db;
     PeliculasDao peliculasDao;
-    List<String> sessions = new ArrayList<>();
+    List<CinesSalas> sessions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sesssion);
         rvSessions = findViewById(R.id.rvSessions);
-        btnFilter = findViewById(R.id.btn_filter);
         tv_session_name = findViewById(R.id.tv_session_name);
 
         idCine = getIntent().getStringExtra(MovieFragment.TAG_FILTER);
@@ -50,39 +50,37 @@ public class SessionActivity extends AppCompatActivity implements DialogFilter.O
 
         tv_session_name.setText(movie);
 
-        btnFilter.setOnClickListener(this);
-
         db = CinesDB.getDatabase(this);
         peliculasDao = db.peliculasDao();
-        sessions = peliculasDao.getSalasByPelicula(movie);
+        sessions = peliculasDao.getCinesSalasByPelicula3(movie);
 
-        for (String s : sessions){
-            System.out.println("SALAS: " + s);
+        /*
+        //DEBUG
+        System.out.println("TAMAÑO LISTA SESSIONS: " + sessions.size());
+
+        for (int i = 0; i < sessions.size(); i++) {
+            System.out.println("CINE: " + sessions.get(i).getNombreCine());
+            System.out.println("SALA: " + sessions.get(i).getIdSala());
+            System.out.println("ID CINE: " + sessions.get(i).getIdCine());
         }
-
+        */
+        llm = new LinearLayoutManager(this);
+        rvSessions.setLayoutManager(llm);
+        adapter = new SessionAdapter(sessions, this);
+        rvSessions.setAdapter(adapter);
 
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btn_filter){
-            Toast.makeText(this, "Filtrar", Toast.LENGTH_SHORT).show();
-            showFilterDialog();
-        } else if (v.getId() == R.id.rvSessions){
-            Toast.makeText(this, "Reservar Entradas", Toast.LENGTH_SHORT).show();
-        }
+        int position = rvSessions.getChildAdapterPosition(v);
+        CinesSalas session = sessions.get(position);
+        //Toast.makeText(this, "Cine: " + session.getNombreCine() + " Sala: " + session.getIdSala(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, SeatActivity.class);
+        intent.putExtra("cine", session.getNombreCine());
+        intent.putExtra("sala", session.getIdSala());
+
+        startActivity(intent);
     }
 
-    private void showFilterDialog() {
-        DialogFilter filterDialog = new DialogFilter();
-        filterDialog.show(getSupportFragmentManager(), "filter dialog");
-        filterDialog.setCancelable(false);
-    }
-
-    @Override
-    public void onAceptarDatosListener(String datos) {
-        cine = datos;
-        Toast.makeText(this, "Cine: " + cine, Toast.LENGTH_SHORT).show();
-        adapter.filter(cine);
-    }
 }
