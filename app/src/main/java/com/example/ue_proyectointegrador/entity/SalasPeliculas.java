@@ -28,10 +28,15 @@ public class SalasPeliculas {
     @NonNull
     public String titulo;
 
-    public SalasPeliculas(@NonNull String idSala, @NonNull String idPelicula, @NonNull String titulo) {
+    @ColumnInfo(name = "precio")
+    @NonNull
+    public double precio;
+
+    public SalasPeliculas(@NonNull String idSala, @NonNull String idPelicula, @NonNull String titulo, double precio) {
         this.idSala = idSala;
         this.idPelicula = idPelicula;
         this.titulo = titulo;
+        this.precio = precio;
     }
     public String getIdSala() {
         return idSala;
@@ -44,4 +49,9 @@ public class SalasPeliculas {
     public String getTitulo() {
         return titulo;
     }
+
+    public double getPrecio() {
+        return precio;
+    }
 }
+
