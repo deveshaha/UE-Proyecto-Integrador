@@ -48,43 +48,51 @@
             app:layout_constraintTop_toBottomOf="@+id/llNameCinema"
             app:layout_constraintStart_toStartOf="parent">
 
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_edit_DataTime"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/textSecondary"
+                android:layout_gravity="center"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                />
+
             <ImageView
-                android:id="@+id/ivCalendar"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/calendar_month"
-                android:layout_gravity="center"
-                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/backgroundApp"
+                android:layout_marginRight="30dp"
                 />
 
-            <TextView
-                android:id="@+id/tvDate"
+            <EditText
+                android:id="@+id/etHour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="April, 14"
+                android:text="@string/txt_hour"
                 android:textColor="@color/textSecondary"
                 android:textSize="14sp"
                 android:layout_gravity="center"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/time_filled_"
-                android:layout_marginLeft="30dp"
-
+                android:backgroundTint="@color/backgroundApp"
                 />
 
-            <TextView
-                android:id="@+id/tvTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="14:00"
-                android:textColor="@color/textSecondary"
-                android:textSize="14sp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="8dp"
-                />
 
         </LinearLayout>
 

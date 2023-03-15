@@ -2,21 +2,31 @@ package com.example.ue_proyectointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class SeatActivity extends AppCompatActivity {
 
     TextView tvNameCinema;
     TextView tvTitleMovie;
-    TextView tvDateMovie;
-    TextView tvHourMovie;
+    EditText etDate;
+    EditText etHour;
     ImageButton ibSeat1, ibSeat2, ibSeat3, ibSeat4, ibSeat5, ibSeat6;
     ImageButton ibSeat7, ibSeat8, ibSeat9, ibSeat10, ibSeat11, ibSeat12;
     ImageButton ibSeat13, ibSeat14, ibSeat15, ibSeat16, ibSeat17, ibSeat18;
     ImageButton ibSeat19, ibSeat20, ibSeat21, ibSeat22, ibSeat23, ibSeat24;
     ImageButton ibSeat25, ibSeat26, ibSeat27, ibSeat28, ibSeat29, ibSeat30;
+    final Calendar calendar = Calendar.getInstance();
 
 
 
@@ -25,13 +35,46 @@ public class SeatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat);
         reference();
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, day);
+                upgradeDateTime();
+            }
+        };
+        etDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(SeatActivity.this, date, calendar.get(Calendar.YEAR),
+                        calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        TimePickerDialog.OnTimeSetListener timeSetListener = (view, horas, min) -> {
+            String hora = horas + ":" + min;
+            etHour.setText(hora);
+        };
+
+        etHour.setOnClickListener(v -> {
+            TimePickerDialog timePickerDialog =
+                    new TimePickerDialog(this, timeSetListener, 0, 0, true);
+            timePickerDialog.show();
+        });
+    }
+
+    private void upgradeDateTime() {
+        String format = "dd/MM/yy";
+        SimpleDateFormat FormatDate = new SimpleDateFormat(format, Locale.forLanguageTag("es"));
+        etDate.setText(FormatDate.format(calendar.getTime()));
     }
 
     private void reference() {
         tvNameCinema = findViewById(R.id.tvNameCinema);
         tvTitleMovie = findViewById(R.id.tvTitleMovie);
-        tvDateMovie = findViewById(R.id.tvDate);
-        tvHourMovie = findViewById(R.id.tvTime);
+        etDate = findViewById(R.id.etDate);
+        etHour = findViewById(R.id.etHour);
         ibSeat1 = findViewById(R.id.ibSeat1);
         ibSeat2 = findViewById(R.id.ibSeat2);
         ibSeat3 = findViewById(R.id.ibSeat3);

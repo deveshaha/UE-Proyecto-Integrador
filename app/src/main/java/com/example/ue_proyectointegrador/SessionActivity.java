@@ -16,11 +16,10 @@ import com.example.ue_proyectointegrador.dialog.DialogFilter;
 import com.example.ue_proyectointegrador.entity.Cines;
 import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.fragments.MovieFragment;
-import com.example.ue_proyectointegrador.model.DataSource;
+
 import com.example.ue_proyectointegrador.rvutil.SessionAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class SessionActivity extends AppCompatActivity implements DialogFilter.OnDatosListener, View.OnClickListener {
 

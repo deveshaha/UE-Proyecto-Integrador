@@ -25,4 +25,6 @@
     <string name="msg_registerOk">Usuario registrado!</string>
     <string name="msg_registerNoOk">Usuario no se ha podido registrar</string>
     <string name="msg_userNoResgister">Email no registrado</string>
+    <string name="hint_edit_DataTime">Introduce la fecha</string>
+    <string name="txt_hour">Introduce la Hora</string>
 </resources>
