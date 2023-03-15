@@ -25,6 +25,7 @@
     <string name="msg_registerOk">Usuario registrado!</string>
     <string name="msg_registerNoOk">Usuario no se ha podido registrar</string>
     <string name="msg_userNoResgister">Email no registrado</string>
+    <string name="tv_session_info">Seleccione una sesión para ver la pelicula:</string>
     <string name="hint_edit_DataTime">Selecciona la fecha</string>
     <string name="txt_hour">Selecciona la hora</string>
 </resources>

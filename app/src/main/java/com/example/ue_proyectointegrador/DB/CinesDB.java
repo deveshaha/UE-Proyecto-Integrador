@@ -18,7 +18,7 @@ import com.example.ue_proyectointegrador.entity.Salas;
 import com.example.ue_proyectointegrador.entity.Usuario;
 
 @Database(entities = {Cines.class, Butacas.class, CinesSalas.class, Salas.class, Entradas.class,
-        DisponibilidadSalasButacas.class, Peliculas.class, Usuario.class}, version = 5, exportSchema = false)
+        DisponibilidadSalasButacas.class, Peliculas.class, Usuario.class}, version = 10, exportSchema = false)
 public abstract class CinesDB extends RoomDatabase {
 
 

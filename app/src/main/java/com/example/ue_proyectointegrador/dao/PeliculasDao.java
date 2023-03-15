@@ -7,10 +7,12 @@ import androidx.room.Query;
 import com.example.ue_proyectointegrador.entity.Butacas;
 import com.example.ue_proyectointegrador.entity.Cines;
 import com.example.ue_proyectointegrador.entity.CinesSalas;
+import com.example.ue_proyectointegrador.entity.DisponibilidadSalasButacas;
 import com.example.ue_proyectointegrador.entity.Entradas;
 import com.example.ue_proyectointegrador.entity.Peliculas;
 import com.example.ue_proyectointegrador.entity.Salas;
 
+import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.entity.Usuario;
 
 import java.util.List;
@@ -24,9 +26,6 @@ public interface PeliculasDao {
     void insertAllCines(List<Cines> cines);
 
     @Insert
-    void insertAllSalasPeliculas(List<Entradas> salasPeliculas);
-
-    @Insert
     void insertAllCinesSalas(List<CinesSalas> cinesSalas);
 
     @Insert
@@ -38,19 +37,30 @@ public interface PeliculasDao {
     @Insert
     void insertAllSalas(List<Salas> salas);
 
+    @Insert
+    void insertAllSalasPeliculas(List<Entradas> salasPeliculas);
+    
+    @Insert
+    void insertDisponibilidadSalasButacas(List<DisponibilidadSalasButacas> disponibilidad);
 
-/*
-    //TODO: ARREGLAR ESTO
-    //Pasamos el nombre de la pelicula y nos devuelve un listado de los cines que tienen esa pelicula
-    @Query("SELECT CINES.nombre " +
+    @Query("SELECT DISTINCT CINES_SALAS.nombreCine, SALAS.idSala, PELICULAS_SALAS.precio, PELICULAS_SALAS.id, CINES_SALAS.idCine " +
+            "FROM CINES INNER JOIN CINES_SALAS " +
+            "ON CINES.idCine = CINES_SALAS.idCine " +
+            "INNER JOIN SALAS " +
+            "ON SALAS.idSala = CINES_SALAS.idSala " +
+            "INNER JOIN PELICULAS_SALAS " +
+            "ON PELICULAS_SALAS.idSala = SALAS.idSala " +
+            "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
+    public List<CinesSalas> getCinesSalasByPelicula3(String titulo);
+
+    @Query("SELECT DISTINCT CINES.nombre " +
             "FROM CINES INNER JOIN CINES_SALAS " +
             "ON CINES.idCine = CINES_SALAS.idCine " +
             "INNER JOIN PELICULAS_SALAS " +
             "ON PELICULAS_SALAS.idSala = PELICULAS_SALAS.idSala " +
             "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
-    public List<Cines> getCinesByPelicula(String titulo);
+    public List<String> getCinesByPelicula2(String titulo);
 
-*/
     //Pasamos el nombre de la pelicula y nos devuelve un listado de las salas que tienen esa pelicula
     @Query("SELECT SALAS.idSala " +
             "FROM SALAS INNER JOIN PELICULAS_SALAS " +
@@ -59,10 +69,16 @@ public interface PeliculasDao {
     public List<String> getSalasByPelicula(String titulo);
 
 
+    //Vemos si en esa sala hay algun asiento ocupado
+    @Query("SELECT * " +
+            "FROM DISPONIBILIDAD_SALAS_BUTACAS " +
+            "WHERE idSala LIKE :idSala AND numButaca LIKE :idButaca AND fechaHora LIKE :fechaHora")
+    public List<DisponibilidadSalasButacas> getDisponibilidadBySala(String idSala, String idButaca, String fechaHora);
+
+
     //Pasamos el nombre de la pelicula y nos devuelve las peliculas con ese nombre
     @Query("SELECT * FROM PELICULAS WHERE titulo LIKE :titulo")
     public List<Peliculas> getPeliculasByTitulo(String titulo);
-
 
 
     //Para mostrar todos los cines disponibles
@@ -85,8 +101,6 @@ public interface PeliculasDao {
 
     @Query("SELECT * FROM USUARIOS")
     public List<Usuario> getAllUsuarios();
-
-    //TODO:Fix Salas_Peliculas
 
     @Query("SELECT * FROM PELICULAS_SALAS")
     public List<Entradas> getAllPeliculasSalas();
