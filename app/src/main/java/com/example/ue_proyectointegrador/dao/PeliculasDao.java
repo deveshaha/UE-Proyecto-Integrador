@@ -7,6 +7,7 @@ import androidx.room.Query;
 import com.example.ue_proyectointegrador.entity.Butacas;
 import com.example.ue_proyectointegrador.entity.Cines;
 import com.example.ue_proyectointegrador.entity.CinesSalas;
+import com.example.ue_proyectointegrador.entity.DisponibilidadSalasButacas;
 import com.example.ue_proyectointegrador.entity.Entradas;
 import com.example.ue_proyectointegrador.entity.Peliculas;
 import com.example.ue_proyectointegrador.entity.Salas;
@@ -38,6 +39,9 @@ public interface PeliculasDao {
     @Insert
     void insertAllSalasPeliculas(List<Entradas> salasPeliculas);
 
+    @Insert
+    void insertDisponibilidadSalasButacas(List<DisponibilidadSalasButacas> disponibilidad);
+
 
 /*
     //TODO: ARREGLAR ESTO
@@ -57,6 +61,13 @@ public interface PeliculasDao {
             "ON SALAS.idSala = PELICULAS_SALAS.idSala " +
             "WHERE PELICULAS_SALAS.titulo LIKE :titulo")
     public List<String> getSalasByPelicula(String titulo);
+
+
+    //Vemos si en esa sala hay algun asiento ocupado
+    @Query("SELECT * " +
+            "FROM DISPONIBILIDAD_SALAS_BUTACAS " +
+            "WHERE idSala LIKE :idSala AND numButaca LIKE :idButaca AND fechaHora LIKE :fechaHora")
+    public List<DisponibilidadSalasButacas> getDisponibilidadBySala(String idSala, String idButaca, String fechaHora);
 
 
     //Pasamos el nombre de la pelicula y nos devuelve las peliculas con ese nombre

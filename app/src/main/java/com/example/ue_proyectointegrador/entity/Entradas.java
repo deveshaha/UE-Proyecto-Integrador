@@ -29,10 +29,15 @@ public class Entradas {
     @NonNull
     public String titulo;
 
-    public Entradas( @NonNull String idSala, @NonNull String idPelicula, @NonNull String titulo) {
+    @ColumnInfo(name = "precio")
+    @NonNull
+    public double precio;
+
+    public Entradas( @NonNull String idSala, @NonNull String idPelicula, @NonNull String titulo, double precio) {
         this.idSala = idSala;
         this.idPelicula = idPelicula;
         this.titulo = titulo;
+        this.precio = precio;
     }
 
 
@@ -61,5 +66,9 @@ public class Entradas {
 
     public void setTitulo(@NonNull String titulo) {
         this.titulo = titulo;
+    }
+
+    public double getPrecio() {
+        return precio;
     }
 }
