@@ -24,6 +24,9 @@ import java.util.ArrayList;
 
 public class MovieFragment extends Fragment implements View.OnClickListener {
 
+
+    public static final String TAG_MOVIE = "MOVIE";
+    public static final String TAG_FILTER = "FILTER";
     RecyclerView rvMovies;
     RecyclerView.LayoutManager llm;
     DataSource dataSource = new DataSource();
@@ -75,8 +78,10 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        //TODO: Implementar el onClick de cada item del recycler view para que al hacer click en un item se abra una nueva activity con los detalles de la pelicula
+        int position = rvMovies.getChildAdapterPosition(v);
+        String idMovie = movies.get(position).idPelicula;
         Intent intent = new Intent(getActivity(), MovieActivity.class);
-        startActivity(intent);         //NOTE: SOLO PARA PRUEBAS!!!!
+        intent.putExtra(TAG_FILTER, idMovie);
+        startActivity(intent);
     }
 }
