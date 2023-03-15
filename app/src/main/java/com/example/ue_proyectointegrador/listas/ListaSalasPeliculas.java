@@ -37,9 +37,6 @@ public class ListaSalasPeliculas {
             listaSalasPeliculas.add(new Entradas(idSala, idPelicula, titulo));
         }
 */
-
-
-
             return listaSalasPeliculas;
     }
 }

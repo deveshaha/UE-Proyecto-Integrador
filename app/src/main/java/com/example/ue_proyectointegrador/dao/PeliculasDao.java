@@ -59,6 +59,11 @@ public interface PeliculasDao {
     public List<String> getSalasByPelicula(String titulo);
 
 
+    //Pasamos el nombre de la pelicula y nos devuelve las peliculas con ese nombre
+    @Query("SELECT * FROM PELICULAS WHERE titulo LIKE :titulo")
+    public List<Peliculas> getPeliculasByTitulo(String titulo);
+
+
 
     //Para mostrar todos los cines disponibles
     @Query("SELECT * FROM CINES")
@@ -85,5 +90,9 @@ public interface PeliculasDao {
 
     @Query("SELECT * FROM PELICULAS_SALAS")
     public List<Entradas> getAllPeliculasSalas();
+
+    //Query para consultar una pelicula por su id
+    @Query("SELECT * FROM PELICULAS WHERE idPelicula LIKE :idPelicula")
+    public Peliculas getPeliculaById(String idPelicula);
 
 }
