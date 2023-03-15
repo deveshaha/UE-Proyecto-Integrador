@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.ue_proyectointegrador.R;
 import com.example.ue_proyectointegrador.dialog.DialogFilter;
+import com.example.ue_proyectointegrador.fragments.MovieFragment;
 import com.example.ue_proyectointegrador.model.DataSource;
 import com.example.ue_proyectointegrador.rvutil.SessionAdapter;
 
@@ -22,6 +22,7 @@ public class SessionActivity extends AppCompatActivity implements DialogFilter.O
     SessionAdapter adapter;
     Button btnFilter;
     String cine;
+    String idCine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +30,16 @@ public class SessionActivity extends AppCompatActivity implements DialogFilter.O
         setContentView(R.layout.activity_sesssion);
         rvSessions = findViewById(R.id.rvSessions);
         btnFilter = findViewById(R.id.btn_filter);
+        idCine = getIntent().getStringExtra(MovieFragment.TAG_FILTER);
+        System.out.println("ID CINE RECIBIDO SESSION ACTIVITY: " + idCine);
         btnFilter.setOnClickListener(this);
-        configRv();
+        configRv(idCine);
     }
 
-    private void configRv() {
-        llm = new LinearLayoutManager(this);
-        rvSessions.setLayoutManager(llm);
-        adapter = new SessionAdapter(dataSource.getListMovies(),this);
-        rvSessions.setAdapter(adapter);
-        rvSessions.setHasFixedSize(true);
+    private void configRv(String idCine) {
+        //we need to get the cinema sessions from the database, then we need to pass them to the adapter
+        //and then we need to set the adapter to the recycler view
+
     }
 
     @Override
