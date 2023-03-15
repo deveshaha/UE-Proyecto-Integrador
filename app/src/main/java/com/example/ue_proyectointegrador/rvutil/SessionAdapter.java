@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ue_proyectointegrador.R;
-import com.example.ue_proyectointegrador.model.Movie;
+import com.example.ue_proyectointegrador.model.Peliculas;
 
 import java.util.ArrayList;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionVH> implements View.OnClickListener {
 
     private View.OnClickListener listener;
-    private ArrayList<Movie> movies; //double check
+    private ArrayList<Peliculas> peliculas; //double check
 
     @Override
     public void onClick(View v) {
@@ -24,8 +24,8 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             listener.onClick(v);
     }
 
-    public SessionAdapter(ArrayList<Movie> movies, View.OnClickListener listener) {
-        this.movies = movies;
+    public SessionAdapter(ArrayList<Peliculas> peliculas, View.OnClickListener listener) {
+        this.peliculas = peliculas;
         this.listener = listener;
     }
 
@@ -40,12 +40,12 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
 
     @Override
     public void onBindViewHolder(@NonNull SessionVH holder, int position) {
-        holder.bindData(movies.get(position));
+        holder.bindData(peliculas.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return movies.size();
+        return peliculas.size();
     }
 
     public void filter(String cine) {
@@ -65,7 +65,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             tvPrice = itemView.findViewById(R.id.tv_price);
         }
 
-        public void bindData(Movie session) {
+        public void bindData(Peliculas session) {
             //TODO: Implementar el bind de los datos de la sesión
             //NOTE: Testing purposes!!!
             tvCinemma.setText("Cine Callao");

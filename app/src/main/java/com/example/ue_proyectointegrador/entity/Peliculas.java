@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "PELICULAS", indices = {@Index(value = {"idPelicula"}), @Index(value = {"titulo"}, unique = true)})
+@Entity(tableName = "PELICULAS", indices = {@Index(value = {"idPelicula"})})
 public class Peliculas {
 
     @PrimaryKey
@@ -16,39 +16,25 @@ public class Peliculas {
     @ColumnInfo(name = "titulo")
     public String titulo;
 
+    @ColumnInfo(name = "duracion")
+    public double duracion;
+
     @ColumnInfo(name = "genero")
     public String genero;
-
-    @ColumnInfo(name = "valoracion")
-    public double valoracion;
-
-    @ColumnInfo(name = "director")
-    public String director;
-
-    @ColumnInfo(name = "duracion")
-    public String duracion;
 
     @ColumnInfo(name = "sinopsis")
     public String sinopsis;
 
     @ColumnInfo(name = "imagen")
-    public int imagen;
+    public String imagen;
 
-    @ColumnInfo(name = "ratingUsuario")
-    public double ratingUsuario;
-
-
-    public Peliculas(@NonNull String idPelicula, String titulo, String genero,
-                     double valoracion, String director, String duracion, String sinopsis, int imagen, double ratingUsuario) {
+    public Peliculas(@NonNull String idPelicula, String titulo, double duracion, String genero, String sinopsis, String imagen) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
-        this.genero = genero;
-        this.valoracion = valoracion;
-        this.director = director;
         this.duracion = duracion;
+        this.genero = genero;
         this.sinopsis = sinopsis;
         this.imagen = imagen;
-        this.ratingUsuario = ratingUsuario;
     }
 
     @NonNull
@@ -60,31 +46,19 @@ public class Peliculas {
         return titulo;
     }
 
+    public double getDuracion() {
+        return duracion;
+    }
+
     public String getGenero() {
         return genero;
-    }
-
-    public double getValoracion() {
-        return valoracion;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public String getDuracion() {
-        return duracion;
     }
 
     public String getSinopsis() {
         return sinopsis;
     }
 
-    public int getImagen() {
+    public String getImagen() {
         return imagen;
-    }
-
-    public double getRatingUsuario() {
-        return ratingUsuario;
     }
 }
