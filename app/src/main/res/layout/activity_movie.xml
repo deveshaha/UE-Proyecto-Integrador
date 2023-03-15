@@ -102,7 +102,6 @@
 
                 </TextView>
 
-
             </LinearLayout>
 
             <TextView
@@ -110,11 +109,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/global_padding"
-                android:text="sidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqndsidnidnqindiqiqnqdiqndiqnd"
                 android:textAlignment="textStart"
                 android:textColor="@color/textSecondary"
                 app:layout_constraintTop_toBottomOf="@id/ll_rating">
-
             </TextView>
 
             <TextView
