@@ -28,4 +28,7 @@
     <string name="tv_session_info">Seleccione una sesión para ver la pelicula:</string>
     <string name="hint_edit_DataTime">Selecciona la fecha</string>
     <string name="txt_hour">Selecciona la hora</string>
+    <string name="txt_available">Disponible</string>
+    <string name="txt_occupied">Ocupados</string>
+    <string name="txt_chose">Seleccionado</string>
 </resources>

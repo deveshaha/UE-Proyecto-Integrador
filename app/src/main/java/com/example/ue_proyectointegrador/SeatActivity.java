@@ -38,6 +38,9 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat);
         reference();
+        tvNameCinema.setText(getIntent().getStringExtra("cine"));
+        tvTitleMovie.setText(getIntent().getStringExtra("movieNana"));
+        String idMovie = getIntent().getStringExtra("sala");
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -109,6 +112,38 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         ibSeat29 = findViewById(R.id.ibSeat29);
         ibSeat30 = findViewById(R.id.ibSeat30);
         btnBuy = findViewById(R.id.btnBuy);
+        ibSeat1.setOnClickListener(this);
+        ibSeat2.setOnClickListener(this);
+        ibSeat3.setOnClickListener(this);
+        ibSeat4.setOnClickListener(this);
+        ibSeat5.setOnClickListener(this);
+        ibSeat6.setOnClickListener(this);
+        ibSeat7.setOnClickListener(this);
+        ibSeat8.setOnClickListener(this);
+        ibSeat9.setOnClickListener(this);
+        ibSeat10.setOnClickListener(this);
+        ibSeat11.setOnClickListener(this);
+        ibSeat12.setOnClickListener(this);
+        ibSeat13.setOnClickListener(this);
+        ibSeat14.setOnClickListener(this);
+        ibSeat15.setOnClickListener(this);
+        ibSeat16.setOnClickListener(this);
+        ibSeat17.setOnClickListener(this);
+        ibSeat18.setOnClickListener(this);
+        ibSeat19.setOnClickListener(this);
+        ibSeat20.setOnClickListener(this);
+        ibSeat21.setOnClickListener(this);
+        ibSeat22.setOnClickListener(this);
+        ibSeat23.setOnClickListener(this);
+        ibSeat24.setOnClickListener(this);
+        ibSeat25.setOnClickListener(this);
+        ibSeat26.setOnClickListener(this);
+        ibSeat27.setOnClickListener(this);
+        ibSeat28.setOnClickListener(this);
+        ibSeat29.setOnClickListener(this);
+        ibSeat30.setOnClickListener(this);
+        btnBuy.setOnClickListener(this);
+
 
     }
 
