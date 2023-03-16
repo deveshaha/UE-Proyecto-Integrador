@@ -21,6 +21,7 @@ import com.example.ue_proyectointegrador.entity.SalasPeliculas;
 import com.example.ue_proyectointegrador.fragments.MovieFragment;
 import com.example.ue_proyectointegrador.rvutil.SessionAdapter;
 
+import java.util.List;
 
 
 public class SessionActivity extends AppCompatActivity implements View.OnClickListener {
@@ -79,6 +80,7 @@ public class SessionActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = new Intent(this, SeatActivity.class);
         intent.putExtra("cine", session.getNombreCine());
         intent.putExtra("sala", session.getIdSala());
+        intent.putExtra("movie", movie);
 
         startActivity(intent);
     }

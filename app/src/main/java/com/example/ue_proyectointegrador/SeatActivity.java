@@ -2,8 +2,12 @@ package com.example.ue_proyectointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,13 +36,14 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
     Button btnBuy;
     final Calendar calendar = Calendar.getInstance();
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat);
         reference();
+        tvNameCinema.setText(getIntent().getStringExtra("cine"));
+        tvTitleMovie.setText(getIntent().getStringExtra("movie"));
+        String idMovie = getIntent().getStringExtra("sala");
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -65,6 +71,7 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
                     new TimePickerDialog(this, timeSetListener, 0, 0, true);
             timePickerDialog.show();
         });
+
     }
 
     private void upgradeDateTime() {
@@ -109,11 +116,44 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         ibSeat29 = findViewById(R.id.ibSeat29);
         ibSeat30 = findViewById(R.id.ibSeat30);
         btnBuy = findViewById(R.id.btnBuy);
+        ibSeat1.setOnClickListener(this);
+        ibSeat2.setOnClickListener(this);
+        ibSeat3.setOnClickListener(this);
+        ibSeat4.setOnClickListener(this);
+        ibSeat5.setOnClickListener(this);
+        ibSeat6.setOnClickListener(this);
+        ibSeat7.setOnClickListener(this);
+        ibSeat8.setOnClickListener(this);
+        ibSeat9.setOnClickListener(this);
+        ibSeat10.setOnClickListener(this);
+        ibSeat11.setOnClickListener(this);
+        ibSeat12.setOnClickListener(this);
+        ibSeat13.setOnClickListener(this);
+        ibSeat14.setOnClickListener(this);
+        ibSeat15.setOnClickListener(this);
+        ibSeat16.setOnClickListener(this);
+        ibSeat17.setOnClickListener(this);
+        ibSeat18.setOnClickListener(this);
+        ibSeat19.setOnClickListener(this);
+        ibSeat20.setOnClickListener(this);
+        ibSeat21.setOnClickListener(this);
+        ibSeat22.setOnClickListener(this);
+        ibSeat23.setOnClickListener(this);
+        ibSeat24.setOnClickListener(this);
+        ibSeat25.setOnClickListener(this);
+        ibSeat26.setOnClickListener(this);
+        ibSeat27.setOnClickListener(this);
+        ibSeat28.setOnClickListener(this);
+        ibSeat29.setOnClickListener(this);
+        ibSeat30.setOnClickListener(this);
+        btnBuy.setOnClickListener(this);
+
 
     }
 
     @Override
     public void onClick(View v) {
+        /*
         ImageButton ib = (ImageButton) v;
         int tickets[] = new int[30];
         if (ib.isSelected()) {
@@ -124,6 +164,24 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
             btnBuy.setText("Comprar" + " " + tickets.length + " " + "entradas");
         } else {
             ib.setSelected(true);
+        }
+*/
+        if (v.getId() == R.id.btnBuy) {
+            System.out.println("Comprando entradas");
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Compra de entradas");
+            builder.setMessage("Se han comprado las entradas, muchas gracias muy pronto recibirá un correo con los detalles de su compra");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(SeatActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+            });
+
+            builder.show();
         }
     }
 }
