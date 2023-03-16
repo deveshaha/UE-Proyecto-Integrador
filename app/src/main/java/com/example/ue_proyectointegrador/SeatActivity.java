@@ -35,6 +35,7 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton ibSeat25, ibSeat26, ibSeat27, ibSeat28, ibSeat29, ibSeat30;
     Button btnBuy;
     final Calendar calendar = Calendar.getInstance();
+    ImageButton [] imageButtons = new ImageButton[30];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,24 +149,112 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         ibSeat30.setOnClickListener(this);
         btnBuy.setOnClickListener(this);
 
-
+       for (int i = 0; i < imageButtons.length; i++) {
+            imageButtons[i] = findViewById(R.id.ibSeat1 + i);
+        }
     }
 
     @Override
     public void onClick(View v) {
-        /*
-        ImageButton ib = (ImageButton) v;
-        int tickets[] = new int[30];
-        if (ib.isSelected()) {
-            ib.setSelected(false);
-            for (int i = 0; i < tickets.length; i++) {
-                tickets[i] = ib.getId();
-            }
-            btnBuy.setText("Comprar" + " " + tickets.length + " " + "entradas");
-        } else {
-            ib.setSelected(true);
-        }
-*/
+        ImageButton selectButton = (ImageButton) v;
+
+        for (ImageButton igmBtn : imageButtons){
+            if (igmBtn == selectButton){
+                int idButton = igmBtn.getId();
+
+                switch (idButton){
+                    case R.id.ibSeat1:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat2:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat3:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat4:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat5:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat6:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat7:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat8:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat9:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat10:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat11:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat12:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat13:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat14:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat15:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat16:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat17:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat18:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat19:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat20:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat21:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat22:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat23:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat24:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat25:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat26:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat27:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat28:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat29:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                    case R.id.ibSeat30:
+                        igmBtn.setImageResource(R.drawable.circle_chosen);
+                        break;
+                }
+
         if (v.getId() == R.id.btnBuy) {
             System.out.println("Comprando entradas");
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
