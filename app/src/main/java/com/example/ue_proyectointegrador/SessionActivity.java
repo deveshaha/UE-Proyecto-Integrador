@@ -80,6 +80,7 @@ public class SessionActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = new Intent(this, SeatActivity.class);
         intent.putExtra("cine", session.getNombreCine());
         intent.putExtra("sala", session.getIdSala());
+        intent.putExtra("movie", movie);
 
         startActivity(intent);
     }

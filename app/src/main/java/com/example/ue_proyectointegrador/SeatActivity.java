@@ -39,7 +39,7 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_seat);
         reference();
         tvNameCinema.setText(getIntent().getStringExtra("cine"));
-        tvTitleMovie.setText(getIntent().getStringExtra("movieNana"));
+        tvTitleMovie.setText(getIntent().getStringExtra("movie"));
         String idMovie = getIntent().getStringExtra("sala");
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
