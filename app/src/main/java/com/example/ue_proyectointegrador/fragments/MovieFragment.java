@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.ue_proyectointegrador.DB.CinesDB;
 import com.example.ue_proyectointegrador.MovieActivity;
@@ -26,31 +27,18 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
 
     public static final String TAG_MOVIE = "MOVIE";
     public static final String TAG_FILTER = "FILTER";
+
     RecyclerView rvMovies;
     RecyclerView.LayoutManager llm;
     Adapter adapter;
     CinesDB db;
     PeliculasDao peliculasDao;
     ArrayList<Peliculas> movies = new ArrayList<>();
-
-
-
-
+    ArrayList<Peliculas> moviesFilter = new ArrayList<>();
 
     public MovieFragment() {
 
     }
-
-
-    //TODO: Definir que los filtros que se van a implementar
-
-  /*  public static MovieFragment newInstance(String param1, String param2) {
-        MovieFragment fragment = new MovieFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
-    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,12 +47,27 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
         rvMovies = view.findViewById(R.id.rvMovies);
         db = CinesDB.getDatabase(getActivity().getApplicationContext());
         peliculasDao = db.peliculasDao();
-        movies = (ArrayList<Peliculas>) peliculasDao.getAllPeliculas();
-        configRv(movies);
-        return view;
+        if (getArguments() != null) {
+            String titulo = getArguments().getString("busqueda");
+            System.out.println("TITULO RECIBIDO: " + titulo);
+            movies = (ArrayList<Peliculas>) peliculasDao.getPeliculasByFilter(titulo);
+            System.out.println("TAMAÑO LISTA PELICULAS FILTRADAS: " + moviesFilter.size());
+
+            if (moviesFilter.size() == 0) {
+                Toast.makeText(getActivity(), "No se ha encontrado nigún resultado", Toast.LENGTH_SHORT).show();
+                movies = (ArrayList<Peliculas>) peliculasDao.getAllPeliculas();
+                configRv(movies);
+                return view;
+            } else {
+                configRv(moviesFilter);
+                return view;
+            }
+        } else {
+            movies = (ArrayList<Peliculas>) peliculasDao.getAllPeliculas();
+            configRv(movies);
+            return view;
+        }
     }
-
-
 
     private void configRv(ArrayList<Peliculas> movies) {
         llm = new LinearLayoutManager(getActivity());
@@ -82,5 +85,14 @@ public class MovieFragment extends Fragment implements View.OnClickListener {
         intent.putExtra(TAG_FILTER, idMovie);
         startActivity(intent);
         System.out.println("ID MOVIE PASAR: " + idMovie);
+    }
+
+    public MovieFragment newInstance(String search) {
+        System.out.println("SEARCH PARAMETRO RECIBIDO: " + search);
+        MovieFragment fragment = new MovieFragment();
+        Bundle args = new Bundle();
+        args.putString("busqueda", search);
+        fragment.setArguments(args);
+        return fragment;
     }
 }

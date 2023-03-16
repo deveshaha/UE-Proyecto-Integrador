@@ -109,4 +109,8 @@ public interface PeliculasDao {
     @Query("SELECT * FROM PELICULAS WHERE idPelicula LIKE :idPelicula")
     public Peliculas getPeliculaById(String idPelicula);
 
+    //Query para consultar una pelicula por su nombr like :titulo")
+
+    @Query("SELECT * FROM PELICULAS WHERE titulo LIKE :titulo")
+    public List<Peliculas> getPeliculasByFilter(String titulo);
 }

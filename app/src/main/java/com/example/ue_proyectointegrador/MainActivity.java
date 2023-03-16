@@ -162,7 +162,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 btnProfile.setText(R.string.txtBtnLogin);
                 break;
             case R.id.imageBttSearch:
-                Toast.makeText(this, "Buscar", Toast.LENGTH_SHORT).show();
+                String search = edtSearch.getText().toString();
+                if (search.isEmpty()){
+                    Toast.makeText(this, "No se ha introducido ninguna búsqueda", Toast.LENGTH_SHORT).show();
+                } else{
+                    MovieFragment movieFragment = new MovieFragment().newInstance(search);
+                    System.out.println("Buscando: " + search);
+                    slide = new Slide(Gravity.BOTTOM);
+                    slide.setDuration(500);
+                    movieFragment.setEnterTransition(slide);
+                    fragmentManager(movieFragment);
+                }
                 break;
         }
     }
