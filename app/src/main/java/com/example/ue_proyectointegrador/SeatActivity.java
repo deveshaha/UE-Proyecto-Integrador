@@ -2,8 +2,12 @@ package com.example.ue_proyectointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,8 +36,6 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
     Button btnBuy;
     final Calendar calendar = Calendar.getInstance();
     ImageButton [] imageButtons = new ImageButton[30];
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,7 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
                     new TimePickerDialog(this, timeSetListener, 0, 0, true);
             timePickerDialog.show();
         });
+
     }
 
     private void upgradeDateTime() {
@@ -251,9 +255,22 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                 }
 
-            }
+        if (v.getId() == R.id.btnBuy) {
+            System.out.println("Comprando entradas");
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Compra de entradas");
+            builder.setMessage("Se han comprado las entradas, muchas gracias muy pronto recibirá un correo con los detalles de su compra");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(SeatActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+            });
+
+            builder.show();
         }
-
-
     }
 }
